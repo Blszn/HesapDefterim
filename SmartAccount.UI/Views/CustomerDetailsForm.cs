@@ -5,6 +5,7 @@ using SmartAccount.Core.Data;
 using System.Linq;
 using SmartAccount.Core.Entities;
 using System.IO;
+using SmartAccount.Business.Services;
 
 namespace SmartAccount.UI.Views
 {
@@ -36,21 +37,80 @@ namespace SmartAccount.UI.Views
         {
             var transactions = _context.Transactions
                 .Where(t => t.CustomerId == _customerId)
-                .OrderByDescending(t => t.Date)
-                .Select(t => new {
-                    t.Date,
-                    t.Type,
-                    t.Amount,
-                    t.Description
-                }).ToList();
+                .ToList();
+                
+            var debts = _context.Debts
+                .Where(d => d.CustomerId == _customerId)
+                .ToList();
 
-            dgvExtre.DataSource = transactions;
+            var extreItems = transactions.Select(t => new {
+                Tarih = t.Date,
+                IslemTuru = t.Type == "Income" ? "Tahsilat Alındı" : "Ödeme Yapıldı",
+                Tutar = t.Amount,
+                Aciklama = t.Description
+            }).Concat(debts.Select(d => new {
+                Tarih = d.DueDate,
+                IslemTuru = d.Type == "Receivable" ? "Bize Borçlandırıldı" : "Biz Borçlandık",
+                Tutar = d.Amount,
+                Aciklama = d.Description
+            })).OrderByDescending(x => x.Tarih).ToList();
+
+            dgvExtre.DataSource = extreItems;
             
-            decimal bakiye = transactions.Where(t => t.Type == "Income").Sum(t => t.Amount) 
-                           - transactions.Where(t => t.Type == "Expense").Sum(t => t.Amount);
+            decimal totalReceivables = debts.Where(d => d.Type == "Receivable").Sum(d => d.Amount);
+            decimal totalPayables = debts.Where(d => d.Type == "Payable").Sum(d => d.Amount);
+            decimal totalIncomes = transactions.Where(t => t.Type == "Income").Sum(t => t.Amount);
+            decimal totalExpenses = transactions.Where(t => t.Type == "Expense").Sum(t => t.Amount);
+
+            decimal bakiye = (totalReceivables + totalExpenses) - (totalPayables + totalIncomes);
                            
-            lblBakiye.Text = $"Güncel Bakiye: {bakiye:C2}";
-            lblBakiye.ForeColor = bakiye >= 0 ? Color.Green : Color.Red;
+            if (bakiye > 0)
+            {
+                lblBakiye.Text = $"Bize Borcu Var: {bakiye:C2}";
+                lblBakiye.ForeColor = Color.Green;
+            }
+            else if (bakiye < 0)
+            {
+                lblBakiye.Text = $"Bizim Borcumuz: {Math.Abs(bakiye):C2}";
+                lblBakiye.ForeColor = Color.Red;
+            }
+            else
+            {
+                lblBakiye.Text = $"Bakiye: 0,00 ₺";
+                lblBakiye.ForeColor = Color.Black;
+            }
+        }
+        
+        private void btnAlacaklandir_Click(object sender, EventArgs e)
+        {
+            using (var form = new DebtAddEditForm("Receivable", _customerId, new FinanceService(_context), _context))
+            {
+                if (form.ShowDialog() == DialogResult.OK) LoadExtre();
+            }
+        }
+
+        private void btnBorclandir_Click(object sender, EventArgs e)
+        {
+            using (var form = new DebtAddEditForm("Payable", _customerId, new FinanceService(_context), _context))
+            {
+                if (form.ShowDialog() == DialogResult.OK) LoadExtre();
+            }
+        }
+
+        private void btnTahsilat_Click(object sender, EventArgs e)
+        {
+            using (var form = new TransactionAddEditForm("Income", new FinanceService(_context), _context, null, _customerId))
+            {
+                if (form.ShowDialog() == DialogResult.OK) LoadExtre();
+            }
+        }
+
+        private void btnTediye_Click(object sender, EventArgs e)
+        {
+            using (var form = new TransactionAddEditForm("Expense", new FinanceService(_context), _context, null, _customerId))
+            {
+                if (form.ShowDialog() == DialogResult.OK) LoadExtre();
+            }
         }
 
         private void LoadAttachments()
@@ -107,6 +167,39 @@ namespace SmartAccount.UI.Views
                 {
                     MessageBox.Show("Dosya bulunamadı.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+            }
+        }
+
+        private void btnDeleteAttachment_Click(object sender, EventArgs e)
+        {
+            if (dgvAttachments.SelectedRows.Count > 0)
+            {
+                var attachment = (Attachment)dgvAttachments.SelectedRows[0].DataBoundItem;
+                var result = MessageBox.Show($"'{attachment.FileName}' dosyasını silmek istediğinize emin misiniz?", "Silme Onayı", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                if (result == DialogResult.Yes)
+                {
+                    try
+                    {
+                        if (File.Exists(attachment.FilePath))
+                        {
+                            File.Delete(attachment.FilePath);
+                        }
+
+                        _context.Attachments.Remove(attachment);
+                        _context.SaveChanges();
+                        LoadAttachments();
+                        MessageBox.Show("Belge başarıyla silindi.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Belge silinirken bir hata oluştu: {ex.Message}", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Lütfen silmek için bir belge seçin.", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
     }

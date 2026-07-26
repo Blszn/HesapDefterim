@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SmartAccount.Core.Data;
 
@@ -10,9 +11,11 @@ using SmartAccount.Core.Data;
 namespace SmartAccount.Core.Migrations
 {
     [DbContext(typeof(SmartAccountDbContext))]
-    partial class SmartAccountDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260726114246_AddPaymentMethodToTransaction")]
+    partial class AddPaymentMethodToTransaction
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "10.0.9");

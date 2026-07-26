@@ -1,5 +1,6 @@
 using System;
 using System.Windows.Forms;
+using System.Linq;
 using SmartAccount.Business.Services;
 
 namespace SmartAccount.UI.Views
@@ -21,7 +22,16 @@ namespace SmartAccount.UI.Views
         
         private void LoadData()
         {
-            dgvAccounts.DataSource = _accountService.GetAllAccounts();
+            var accounts = _accountService.GetAllAccounts();
+            dgvAccounts.DataSource = accounts.Select(a => new {
+                ID = a.Id,
+                HesapAdı = a.Name,
+                Tür = a.Type == "Cash" ? "Kasa" : "Banka",
+                Bakiye = a.Balance,
+                ParaBirimi = a.Currency,
+                BankaAdı = a.BankName,
+                IBAN = a.IBAN
+            }).ToList();
         }
         
         private void btnRefresh_Click(object sender, EventArgs e)

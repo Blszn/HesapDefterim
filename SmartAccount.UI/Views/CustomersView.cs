@@ -38,6 +38,12 @@ namespace SmartAccount.UI.Views
             if (dgvCustomers.Columns["FullName"] != null) dgvCustomers.Columns["FullName"].HeaderText = "Ad Soyad";
             if (dgvCustomers.Columns["MobilePhone"] != null) dgvCustomers.Columns["MobilePhone"].HeaderText = "Cep Telefonu";
             if (dgvCustomers.Columns["TaxNumber"] != null) dgvCustomers.Columns["TaxNumber"].HeaderText = "Vergi No";
+            
+            if (dgvCustomers.Columns["Balance"] != null) 
+            {
+                dgvCustomers.Columns["Balance"].HeaderText = "Bakiye";
+                dgvCustomers.Columns["Balance"].DefaultCellStyle.Format = "C2";
+            }
         }
 
         private void btnSearch_Click(object sender, EventArgs e)

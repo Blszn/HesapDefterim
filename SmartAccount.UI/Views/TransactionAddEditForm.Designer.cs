@@ -25,6 +25,8 @@ namespace SmartAccount.UI.Views
             this.cmbCategory = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.cmbCustomer = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.cmbPaymentMethod = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txtDescription = new System.Windows.Forms.TextBox();
             this.btnSave = new System.Windows.Forms.Button();
@@ -129,24 +131,53 @@ namespace SmartAccount.UI.Views
             this.cmbCustomer.Size = new System.Drawing.Size(340, 28);
             this.cmbCustomer.TabIndex = 3;
             // 
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label6.Location = new System.Drawing.Point(30, 320);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(100, 17);
+            this.label6.TabIndex = 10;
+            this.label6.Text = "Ödeme Yöntemi";
+            // 
+            // cmbPaymentMethod
+            // 
+            this.cmbPaymentMethod.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbPaymentMethod.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.cmbPaymentMethod.FormattingEnabled = true;
+            this.cmbPaymentMethod.Items.AddRange(new object[] {
+            "Nakit",
+            "Kredi Kartı",
+            "Banka Kartı",
+            "Banka Havalesi",
+            "Çek",
+            "Senet",
+            "Diğer"});
+            this.cmbPaymentMethod.Location = new System.Drawing.Point(30, 340);
+            this.cmbPaymentMethod.Name = "cmbPaymentMethod";
+            this.cmbPaymentMethod.Size = new System.Drawing.Size(340, 28);
+            this.cmbPaymentMethod.TabIndex = 4;
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(30, 320);
+            this.label5.Location = new System.Drawing.Point(30, 380);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(59, 17);
-            this.label5.TabIndex = 9;
+            this.label5.TabIndex = 11;
             this.label5.Text = "Açıklama";
             // 
             // txtDescription
             // 
             this.txtDescription.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtDescription.Location = new System.Drawing.Point(30, 340);
+            this.txtDescription.Location = new System.Drawing.Point(30, 400);
             this.txtDescription.Multiline = true;
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Size = new System.Drawing.Size(340, 60);
-            this.txtDescription.TabIndex = 4;
+            this.txtDescription.TabIndex = 5;
             // 
             // btnSave
             // 
@@ -155,10 +186,10 @@ namespace SmartAccount.UI.Views
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Location = new System.Drawing.Point(250, 420);
+            this.btnSave.Location = new System.Drawing.Point(250, 480);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(120, 40);
-            this.btnSave.TabIndex = 5;
+            this.btnSave.TabIndex = 6;
             this.btnSave.Text = "Kaydet";
             this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
@@ -170,10 +201,10 @@ namespace SmartAccount.UI.Views
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnCancel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
-            this.btnCancel.Location = new System.Drawing.Point(120, 420);
+            this.btnCancel.Location = new System.Drawing.Point(120, 480);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(120, 40);
-            this.btnCancel.TabIndex = 6;
+            this.btnCancel.TabIndex = 7;
             this.btnCancel.Text = "İptal";
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -185,11 +216,13 @@ namespace SmartAccount.UI.Views
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(400, 480);
+            this.ClientSize = new System.Drawing.Size(400, 540);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.txtDescription);
             this.Controls.Add(this.label5);
+            this.Controls.Add(this.cmbPaymentMethod);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.cmbCustomer);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.cmbCategory);
@@ -224,6 +257,8 @@ namespace SmartAccount.UI.Views
         private System.Windows.Forms.ComboBox cmbCustomer;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtDescription;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ComboBox cmbPaymentMethod;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnCancel;
     }

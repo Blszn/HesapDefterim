@@ -23,6 +23,7 @@ namespace SmartAccount.UI.Views
             this.lblExpense = new System.Windows.Forms.Label();
             this.lblIncome = new System.Windows.Forms.Label();
             this.btnDelete = new System.Windows.Forms.Button();
+            this.btnUpdate = new System.Windows.Forms.Button();
             this.btnAddExpense = new System.Windows.Forms.Button();
             this.btnAddIncome = new System.Windows.Forms.Button();
             this.btnFilter = new System.Windows.Forms.Button();
@@ -44,6 +45,7 @@ namespace SmartAccount.UI.Views
             this.panelTop.Controls.Add(this.lblExpense);
             this.panelTop.Controls.Add(this.lblIncome);
             this.panelTop.Controls.Add(this.btnDelete);
+            this.panelTop.Controls.Add(this.btnUpdate);
             this.panelTop.Controls.Add(this.btnAddExpense);
             this.panelTop.Controls.Add(this.btnAddIncome);
             this.panelTop.Controls.Add(this.btnFilter);
@@ -107,6 +109,22 @@ namespace SmartAccount.UI.Views
             this.btnDelete.UseVisualStyleBackColor = false;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
+            // btnUpdate
+            // 
+            this.btnUpdate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnUpdate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
+            this.btnUpdate.FlatAppearance.BorderSize = 0;
+            this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUpdate.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnUpdate.ForeColor = System.Drawing.Color.White;
+            this.btnUpdate.Location = new System.Drawing.Point(840, 20);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(100, 35);
+            this.btnUpdate.TabIndex = 10;
+            this.btnUpdate.Text = "Güncelle";
+            this.btnUpdate.UseVisualStyleBackColor = false;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
+            // 
             // btnAddExpense
             // 
             this.btnAddExpense.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -115,9 +133,9 @@ namespace SmartAccount.UI.Views
             this.btnAddExpense.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddExpense.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnAddExpense.ForeColor = System.Drawing.Color.White;
-            this.btnAddExpense.Location = new System.Drawing.Point(820, 20);
+            this.btnAddExpense.Location = new System.Drawing.Point(720, 20);
             this.btnAddExpense.Name = "btnAddExpense";
-            this.btnAddExpense.Size = new System.Drawing.Size(120, 35);
+            this.btnAddExpense.Size = new System.Drawing.Size(110, 35);
             this.btnAddExpense.TabIndex = 8;
             this.btnAddExpense.Text = "Gider Ekle";
             this.btnAddExpense.UseVisualStyleBackColor = false;
@@ -131,9 +149,9 @@ namespace SmartAccount.UI.Views
             this.btnAddIncome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddIncome.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnAddIncome.ForeColor = System.Drawing.Color.White;
-            this.btnAddIncome.Location = new System.Drawing.Point(690, 20);
+            this.btnAddIncome.Location = new System.Drawing.Point(600, 20);
             this.btnAddIncome.Name = "btnAddIncome";
-            this.btnAddIncome.Size = new System.Drawing.Size(120, 35);
+            this.btnAddIncome.Size = new System.Drawing.Size(110, 35);
             this.btnAddIncome.TabIndex = 7;
             this.btnAddIncome.Text = "Gelir Ekle";
             this.btnAddIncome.UseVisualStyleBackColor = false;
@@ -146,7 +164,7 @@ namespace SmartAccount.UI.Views
             this.btnFilter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFilter.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnFilter.ForeColor = System.Drawing.Color.White;
-            this.btnFilter.Location = new System.Drawing.Point(610, 22);
+            this.btnFilter.Location = new System.Drawing.Point(530, 22);
             this.btnFilter.Name = "btnFilter";
             this.btnFilter.Size = new System.Drawing.Size(60, 28);
             this.btnFilter.TabIndex = 6;
@@ -163,15 +181,15 @@ namespace SmartAccount.UI.Views
             "Tümü",
             "Gelir",
             "Gider"});
-            this.cmbType.Location = new System.Drawing.Point(500, 22);
+            this.cmbType.Location = new System.Drawing.Point(430, 22);
             this.cmbType.Name = "cmbType";
-            this.cmbType.Size = new System.Drawing.Size(100, 28);
+            this.cmbType.Size = new System.Drawing.Size(90, 28);
             this.cmbType.TabIndex = 5;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(350, 28);
+            this.label2.Location = new System.Drawing.Point(300, 28);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(12, 15);
             this.label2.TabIndex = 4;
@@ -181,15 +199,15 @@ namespace SmartAccount.UI.Views
             // 
             this.dtpEnd.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.dtpEnd.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpEnd.Location = new System.Drawing.Point(370, 22);
+            this.dtpEnd.Location = new System.Drawing.Point(320, 22);
             this.dtpEnd.Name = "dtpEnd";
-            this.dtpEnd.Size = new System.Drawing.Size(120, 27);
+            this.dtpEnd.Size = new System.Drawing.Size(100, 27);
             this.dtpEnd.TabIndex = 3;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(190, 28);
+            this.label1.Location = new System.Drawing.Point(140, 28);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(35, 15);
             this.label1.TabIndex = 2;
@@ -199,9 +217,9 @@ namespace SmartAccount.UI.Views
             // 
             this.dtpStart.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.dtpStart.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpStart.Location = new System.Drawing.Point(230, 22);
+            this.dtpStart.Location = new System.Drawing.Point(190, 22);
             this.dtpStart.Name = "dtpStart";
-            this.dtpStart.Size = new System.Drawing.Size(120, 27);
+            this.dtpStart.Size = new System.Drawing.Size(100, 27);
             this.dtpStart.TabIndex = 1;
             // 
             // lblTitle
@@ -279,6 +297,7 @@ namespace SmartAccount.UI.Views
         private System.Windows.Forms.Button btnFilter;
         private System.Windows.Forms.Button btnAddIncome;
         private System.Windows.Forms.Button btnAddExpense;
+        private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Label lblIncome;
         private System.Windows.Forms.Label lblExpense;

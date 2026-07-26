@@ -1,5 +1,6 @@
 using System;
 using System.Windows.Forms;
+using System.Linq;
 using SmartAccount.Business.Services;
 
 namespace SmartAccount.UI.Views
@@ -21,7 +22,13 @@ namespace SmartAccount.UI.Views
         
         private void LoadData()
         {
-            dgvSettings.DataSource = _settingService.GetAllSettings();
+            var settings = _settingService.GetAllSettings();
+            dgvSettings.DataSource = settings.Select(s => new {
+                ID = s.Id,
+                AyarAdı = s.Key,
+                Değer = s.Value,
+                Açıklama = s.Description
+            }).ToList();
         }
         
         private void btnRefresh_Click(object sender, EventArgs e)

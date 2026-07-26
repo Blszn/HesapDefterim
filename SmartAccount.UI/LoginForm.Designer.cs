@@ -76,7 +76,7 @@ namespace SmartAccount.UI
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(206, 37);
             this.lblTitle.TabIndex = 3;
-            this.lblTitle.Text = "SmartAccount";
+            this.lblTitle.Text = "HesapDefterim";
             // 
             // lblError
             // 
@@ -153,7 +153,7 @@ namespace SmartAccount.UI
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Giriş Yap - SmartAccount";
+            this.Text = "Giriş Yap - HesapDefterim";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);

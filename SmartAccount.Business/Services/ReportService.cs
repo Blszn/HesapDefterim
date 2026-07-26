@@ -1,4 +1,7 @@
 using SmartAccount.Core.Data;
+using SmartAccount.Core.Entities;
+using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace SmartAccount.Business.Services
@@ -42,6 +45,23 @@ namespace SmartAccount.Business.Services
 
             return summary;
         }
+
+        public DailyReportSummary GetDailyReport(DateTime date)
+        {
+            var summary = new DailyReportSummary();
+            var targetDate = date.Date;
+            
+            var dailyTransactions = _context.Transactions
+                .Where(t => t.Date.Date == targetDate)
+                .ToList();
+
+            summary.Transactions = dailyTransactions;
+            summary.TotalIncome = dailyTransactions.Where(t => t.Type == "Income").Sum(t => t.Amount);
+            summary.TotalExpense = dailyTransactions.Where(t => t.Type == "Expense").Sum(t => t.Amount);
+            summary.NetBalance = summary.TotalIncome - summary.TotalExpense;
+
+            return summary;
+        }
     }
 
     public class DashboardSummary
@@ -53,5 +73,13 @@ namespace SmartAccount.Business.Services
         public int PendingInvoicesCount { get; set; }
         public decimal PendingInvoicesAmount { get; set; }
         public int PendingWorksCount { get; set; }
+    }
+
+    public class DailyReportSummary
+    {
+        public decimal TotalIncome { get; set; }
+        public decimal TotalExpense { get; set; }
+        public decimal NetBalance { get; set; }
+        public List<Transaction> Transactions { get; set; } = new List<Transaction>();
     }
 }

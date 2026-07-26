@@ -3,6 +3,8 @@ using SmartAccount.Core.Entities;
 using System.Collections.Generic;
 using System.Linq;
 
+using Microsoft.EntityFrameworkCore;
+
 namespace SmartAccount.Business.Services
 {
     public class CustomerService
@@ -16,12 +18,40 @@ namespace SmartAccount.Business.Services
 
         public List<Customer> GetAllCustomers()
         {
-            return _context.Customers.OrderBy(c => c.FullName).ToList();
+            var customers = _context.Customers
+                .Include(c => c.Transactions)
+                .Include(c => c.Debts)
+                .OrderBy(c => c.FullName)
+                .ToList();
+
+            foreach (var c in customers)
+            {
+                CalculateBalance(c);
+            }
+            return customers;
         }
 
         public Customer? GetCustomerById(int id)
         {
-            return _context.Customers.FirstOrDefault(c => c.Id == id);
+            var customer = _context.Customers
+                .Include(c => c.Transactions)
+                .Include(c => c.Debts)
+                .FirstOrDefault(c => c.Id == id);
+                
+            if (customer != null) CalculateBalance(customer);
+            return customer;
+        }
+        
+        private void CalculateBalance(Customer c)
+        {
+            decimal totalReceivables = c.Debts.Where(d => d.Type == "Receivable").Sum(d => d.Amount);
+            decimal totalPayables = c.Debts.Where(d => d.Type == "Payable").Sum(d => d.Amount);
+            
+            decimal totalIncomes = c.Transactions.Where(t => t.Type == "Income").Sum(t => t.Amount);
+            decimal totalExpenses = c.Transactions.Where(t => t.Type == "Expense").Sum(t => t.Amount);
+
+            // Bakiye = (Alacaklar + Yapılan Ödemeler/Giderler) - (Borçlar + Alınan Ödemeler/Gelirler)
+            c.Balance = (totalReceivables + totalExpenses) - (totalPayables + totalIncomes);
         }
 
         public (bool Success, string Message) AddCustomer(Customer customer)
@@ -83,12 +113,20 @@ namespace SmartAccount.Business.Services
             }
 
             keyword = keyword.ToLower();
-            return _context.Customers
+            var customers = _context.Customers
+                .Include(c => c.Transactions)
+                .Include(c => c.Debts)
                 .Where(c => c.FullName.ToLower().Contains(keyword) || 
                             (c.MobilePhone != null && c.MobilePhone.Contains(keyword)) ||
                             (c.TaxNumber != null && c.TaxNumber.Contains(keyword)))
                 .OrderBy(c => c.FullName)
                 .ToList();
+                
+            foreach (var c in customers)
+            {
+                CalculateBalance(c);
+            }
+            return customers;
         }
     }
 }

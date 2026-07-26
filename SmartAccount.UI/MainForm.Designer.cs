@@ -17,12 +17,17 @@ namespace SmartAccount.UI
         {
             this.pnlSidebar = new System.Windows.Forms.Panel();
             this.btnExit = new System.Windows.Forms.Button();
+            this.btnSettings = new System.Windows.Forms.Button();
+            this.btnAccounts = new System.Windows.Forms.Button();
+            this.btnProducts = new System.Windows.Forms.Button();
             this.btnReports = new System.Windows.Forms.Button();
             this.btnInvoices = new System.Windows.Forms.Button();
             this.btnWorks = new System.Windows.Forms.Button();
             this.btnTransactions = new System.Windows.Forms.Button();
             this.btnCustomers = new System.Windows.Forms.Button();
             this.btnDashboard = new System.Windows.Forms.Button();
+            this.btnPersonnel = new System.Windows.Forms.Button();
+            this.btnDailyReport = new System.Windows.Forms.Button();
             this.pnlLogo = new System.Windows.Forms.Panel();
             this.lblLogo = new System.Windows.Forms.Label();
             this.pnlHeader = new System.Windows.Forms.Panel();
@@ -51,6 +56,8 @@ namespace SmartAccount.UI
             this.pnlSidebar.Controls.Add(this.btnTransactions);
             this.pnlSidebar.Controls.Add(this.btnCustomers);
             this.pnlSidebar.Controls.Add(this.btnDashboard);
+            this.pnlSidebar.Controls.Add(this.btnPersonnel);
+            this.pnlSidebar.Controls.Add(this.btnDailyReport);
             this.pnlSidebar.Controls.Add(this.pnlLogo);
             this.pnlSidebar.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlSidebar.Location = new System.Drawing.Point(0, 0);
@@ -128,6 +135,36 @@ namespace SmartAccount.UI
             this.btnReports.TabIndex = 5;
             this.btnReports.Text = "Raporlar";
             this.btnReports.UseVisualStyleBackColor = true;
+            // 
+            // btnPersonnel
+            // 
+            this.btnPersonnel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnPersonnel.FlatAppearance.BorderSize = 0;
+            this.btnPersonnel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPersonnel.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnPersonnel.ForeColor = System.Drawing.Color.White;
+            this.btnPersonnel.Location = new System.Drawing.Point(0, 230);
+            this.btnPersonnel.Name = "btnPersonnel";
+            this.btnPersonnel.Size = new System.Drawing.Size(220, 50);
+            this.btnPersonnel.TabIndex = 6;
+            this.btnPersonnel.Text = "Personel Yönetimi";
+            this.btnPersonnel.UseVisualStyleBackColor = true;
+            this.btnPersonnel.Click += new System.EventHandler(this.btnPersonnel_Click);
+            // 
+            // btnDailyReport
+            // 
+            this.btnDailyReport.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnDailyReport.FlatAppearance.BorderSize = 0;
+            this.btnDailyReport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDailyReport.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnDailyReport.ForeColor = System.Drawing.Color.White;
+            this.btnDailyReport.Location = new System.Drawing.Point(0, 180);
+            this.btnDailyReport.Name = "btnDailyReport";
+            this.btnDailyReport.Size = new System.Drawing.Size(220, 50);
+            this.btnDailyReport.TabIndex = 7;
+            this.btnDailyReport.Text = "Gün Sonu Raporu";
+            this.btnDailyReport.UseVisualStyleBackColor = true;
+            this.btnDailyReport.Click += new System.EventHandler(this.btnDailyReport_Click);
             // 
             // btnInvoices
             // 
@@ -331,6 +368,8 @@ namespace SmartAccount.UI
         private System.Windows.Forms.Panel pnlLogo;
         private System.Windows.Forms.Label lblLogo;
         private System.Windows.Forms.Button btnDashboard;
+        private System.Windows.Forms.Button btnPersonnel;
+        private System.Windows.Forms.Button btnDailyReport;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Button btnSettings;
         private System.Windows.Forms.Button btnAccounts;

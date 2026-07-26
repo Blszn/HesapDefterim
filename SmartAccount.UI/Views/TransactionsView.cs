@@ -61,6 +61,7 @@ namespace SmartAccount.UI.Views
                 Tarih = t.Date.ToShortDateString(),
                 Tur = t.Type == "Income" ? "Gelir" : "Gider",
                 Kategori = t.Category?.Name ?? "",
+                OdemeYontemi = t.PaymentMethod,
                 Tutar = t.Amount.ToString("C2"),
                 Aciklama = t.Description,
                 Musteri = t.Customer?.FullName ?? "-"
@@ -108,6 +109,28 @@ namespace SmartAccount.UI.Views
                 {
                     LoadTransactions();
                 }
+            }
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            if (dgvTransactions.SelectedRows.Count > 0)
+            {
+                int id = (int)dgvTransactions.SelectedRows[0].Cells["Id"].Value;
+                string tur = dgvTransactions.SelectedRows[0].Cells["Tur"].Value?.ToString() ?? "";
+                string type = tur == "Gelir" ? "Income" : "Expense";
+                
+                using (var form = new TransactionAddEditForm(type, _financeService, _context, id))
+                {
+                    if (form.ShowDialog() == DialogResult.OK)
+                    {
+                        LoadTransactions();
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Lütfen güncellemek için bir kayıt seçin.", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 

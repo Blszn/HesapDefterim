@@ -91,6 +91,24 @@ namespace SmartAccount.Business.Services
             return (true, "İşlem başarıyla eklendi.");
         }
 
+        public Transaction GetTransactionById(int id)
+        {
+            return _context.Transactions.FirstOrDefault(t => t.Id == id);
+        }
+
+        public (bool Success, string Message) UpdateTransaction(Transaction transaction)
+        {
+            if (transaction.Amount <= 0)
+                return (false, "Tutar 0'dan büyük olmalıdır.");
+            
+            if (transaction.CategoryId == 0)
+                return (false, "Lütfen bir kategori seçiniz.");
+
+            _context.Transactions.Update(transaction);
+            _context.SaveChanges();
+            return (true, "İşlem başarıyla güncellendi.");
+        }
+
         public (bool Success, string Message) DeleteTransaction(int id)
         {
             var tx = _context.Transactions.FirstOrDefault(t => t.Id == id);

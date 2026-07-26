@@ -14,12 +14,17 @@ namespace SmartAccount.UI.Views
         private FinanceService _financeService;
         private SmartAccountDbContext _context;
 
-        public TransactionAddEditForm(string type, FinanceService financeService, SmartAccountDbContext context)
+        private int? _transactionId;
+        private int? _defaultCustomerId;
+
+        public TransactionAddEditForm(string type, FinanceService financeService, SmartAccountDbContext context, int? transactionId = null, int? defaultCustomerId = null)
         {
             InitializeComponent();
             _type = type;
             _financeService = financeService;
             _context = context;
+            _transactionId = transactionId;
+            _defaultCustomerId = defaultCustomerId;
 
             if (_type == "Income")
             {
@@ -34,8 +39,41 @@ namespace SmartAccount.UI.Views
 
             LoadCategories();
             LoadCustomers();
+            cmbPaymentMethod.SelectedIndex = 0; // Varsayılan: Nakit
+            
+            if (_defaultCustomerId.HasValue)
+            {
+                cmbCustomer.SelectedValue = _defaultCustomerId.Value;
+            }
+
+            if (_transactionId.HasValue)
+            {
+                lblTitle.Text = _type == "Income" ? "Gelir Güncelle" : "Gider Güncelle";
+                LoadTransactionData();
+            }
 
             txtAmount.KeyPress += Decimal_KeyPress;
+        }
+
+        private void LoadTransactionData()
+        {
+            var transaction = _financeService.GetTransactionById(_transactionId.Value);
+            if (transaction != null)
+            {
+                txtAmount.Text = transaction.Amount.ToString("0.##");
+                dtpDate.Value = transaction.Date;
+                txtDescription.Text = transaction.Description;
+                cmbCategory.SelectedValue = transaction.CategoryId;
+                if (transaction.CustomerId.HasValue)
+                {
+                    cmbCustomer.SelectedValue = transaction.CustomerId.Value;
+                }
+                
+                if (!string.IsNullOrEmpty(transaction.PaymentMethod))
+                {
+                    cmbPaymentMethod.SelectedItem = transaction.PaymentMethod;
+                }
+            }
         }
 
         private void Decimal_KeyPress(object sender, KeyPressEventArgs e)
@@ -76,29 +114,61 @@ namespace SmartAccount.UI.Views
                 return;
             }
 
-            var transaction = new Transaction
+            if (_transactionId.HasValue)
             {
-                Type = _type,
-                Amount = amount,
-                Date = dtpDate.Value,
-                Description = txtDescription.Text,
-                CategoryId = (int)cmbCategory.SelectedValue
-            };
+                var transaction = _financeService.GetTransactionById(_transactionId.Value);
+                if (transaction != null)
+                {
+                    transaction.Amount = amount;
+                    transaction.Date = dtpDate.Value;
+                    transaction.Description = txtDescription.Text;
+                    transaction.PaymentMethod = cmbPaymentMethod.SelectedItem?.ToString() ?? "Nakit";
+                    transaction.CategoryId = (int)cmbCategory.SelectedValue;
+                    
+                    if ((int)cmbCustomer.SelectedValue > 0)
+                        transaction.CustomerId = (int)cmbCustomer.SelectedValue;
+                    else
+                        transaction.CustomerId = null;
 
-            if ((int)cmbCustomer.SelectedValue > 0)
-            {
-                transaction.CustomerId = (int)cmbCustomer.SelectedValue;
-            }
-
-            var result = _financeService.AddTransaction(transaction);
-            if (result.Success)
-            {
-                this.DialogResult = DialogResult.OK;
-                this.Close();
+                    var result = _financeService.UpdateTransaction(transaction);
+                    if (result.Success)
+                    {
+                        this.DialogResult = DialogResult.OK;
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show(result.Message, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
             }
             else
             {
-                MessageBox.Show(result.Message, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                var transaction = new Transaction
+                {
+                    Type = _type,
+                    Amount = amount,
+                    Date = dtpDate.Value,
+                    Description = txtDescription.Text,
+                    PaymentMethod = cmbPaymentMethod.SelectedItem?.ToString() ?? "Nakit",
+                    CategoryId = (int)cmbCategory.SelectedValue
+                };
+
+                if ((int)cmbCustomer.SelectedValue > 0)
+                {
+                    transaction.CustomerId = (int)cmbCustomer.SelectedValue;
+                }
+
+                var result = _financeService.AddTransaction(transaction);
+                if (result.Success)
+                {
+                    this.DialogResult = DialogResult.OK;
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show(result.Message, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 

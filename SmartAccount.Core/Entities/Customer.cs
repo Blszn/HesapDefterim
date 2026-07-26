@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SmartAccount.Core.Entities
 {
@@ -12,6 +13,9 @@ namespace SmartAccount.Core.Entities
         public string? TaxNumber { get; set; }
         public string? Email { get; set; }
         public string? Notes { get; set; }
+
+        [NotMapped]
+        public decimal Balance { get; set; }
 
         // Navigation Properties
         public ICollection<Transaction> Transactions { get; set; } = new List<Transaction>();

@@ -122,6 +122,30 @@ namespace SmartAccount.UI
             pnlContent.Controls.Add(customersView);
         }
 
+        private void btnPersonnel_Click(object? sender, EventArgs e)
+        {
+            lblPageTitle.Text = "Personel Yönetimi";
+            pnlContent.Controls.Clear();
+            var form = new Views.PersonnelListForm();
+            form.TopLevel = false;
+            form.FormBorderStyle = FormBorderStyle.None;
+            form.Dock = DockStyle.Fill;
+            pnlContent.Controls.Add(form);
+            form.Show();
+        }
+
+        private void btnDailyReport_Click(object? sender, EventArgs e)
+        {
+            lblPageTitle.Text = "Gün Sonu Raporu";
+            pnlContent.Controls.Clear();
+            var form = new Views.DailyReportForm();
+            form.TopLevel = false;
+            form.FormBorderStyle = FormBorderStyle.None;
+            form.Dock = DockStyle.Fill;
+            pnlContent.Controls.Add(form);
+            form.Show();
+        }
+
         private void btnExit_Click(object sender, EventArgs e)
         {
             Application.Exit();

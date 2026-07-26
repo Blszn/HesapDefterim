@@ -39,7 +39,7 @@ namespace SmartAccount.UI.Views
             lblPendingWorks.Text = summary.PendingWorksCount.ToString();
 
             // Net bakiye rengi ayarlama
-            lblNetBalance.ForeColor = summary.NetBalance >= 0 ? Color.FromArgb(39, 174, 96) : Color.FromArgb(192, 57, 43);
+            lblNetBalance.ForeColor = summary.NetBalance >= 0 ? System.Drawing.Color.FromArgb(39, 174, 96) : System.Drawing.Color.FromArgb(192, 57, 43);
             
             LoadChart();
         }

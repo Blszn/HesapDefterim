@@ -25,6 +25,7 @@ namespace SmartAccount.Core.Data
         public DbSet<Account> Accounts { get; set; } = null!;
         public DbSet<Attachment> Attachments { get; set; } = null!;
         public DbSet<Setting> Settings { get; set; } = null!;
+        public DbSet<Employee> Employees { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -56,6 +57,7 @@ namespace SmartAccount.Core.Data
             modelBuilder.Entity<Account>().HasQueryFilter(x => !x.IsDeleted);
             modelBuilder.Entity<Attachment>().HasQueryFilter(x => !x.IsDeleted);
             modelBuilder.Entity<Setting>().HasQueryFilter(x => !x.IsDeleted);
+            modelBuilder.Entity<Employee>().HasQueryFilter(x => !x.IsDeleted);
         }
 
         public override int SaveChanges()
