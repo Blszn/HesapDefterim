@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="SmartAccount.Business/SmartAccount.Business.csproj" />
+  <Project Path="SmartAccount.Core/SmartAccount.Core.csproj" />
+  <Project Path="SmartAccount.UI/SmartAccount.UI.csproj" />
+</Solution>
