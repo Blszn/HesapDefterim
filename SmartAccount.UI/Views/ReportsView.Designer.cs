@@ -1,4 +1,4 @@
-namespace SmartAccount.UI.Views
+﻿namespace SmartAccount.UI.Views
 {
     partial class ReportsView
     {
@@ -41,7 +41,7 @@ namespace SmartAccount.UI.Views
             this.lblMessage.Name = "lblMessage";
             this.lblMessage.Size = new System.Drawing.Size(360, 21);
             this.lblMessage.TabIndex = 1;
-            this.lblMessage.Text = "Faturalarınızı aşağıdaki formatlarda indirebilirsiniz.";
+            this.lblMessage.Text = "";
             // 
             // btnExportInvoicesPdf
             // 
@@ -54,7 +54,7 @@ namespace SmartAccount.UI.Views
             this.btnExportInvoicesPdf.Name = "btnExportInvoicesPdf";
             this.btnExportInvoicesPdf.Size = new System.Drawing.Size(200, 40);
             this.btnExportInvoicesPdf.TabIndex = 2;
-            this.btnExportInvoicesPdf.Text = "Faturaları PDF İndir";
+            this.btnExportInvoicesPdf.Text = "";
             this.btnExportInvoicesPdf.UseVisualStyleBackColor = false;
             this.btnExportInvoicesPdf.Click += new System.EventHandler(this.btnExportInvoicesPdf_Click);
             // 
@@ -69,7 +69,7 @@ namespace SmartAccount.UI.Views
             this.btnExportInvoicesExcel.Name = "btnExportInvoicesExcel";
             this.btnExportInvoicesExcel.Size = new System.Drawing.Size(200, 40);
             this.btnExportInvoicesExcel.TabIndex = 3;
-            this.btnExportInvoicesExcel.Text = "Faturaları Excel İndir";
+            this.btnExportInvoicesExcel.Text = "";
             this.btnExportInvoicesExcel.UseVisualStyleBackColor = false;
             this.btnExportInvoicesExcel.Click += new System.EventHandler(this.btnExportInvoicesExcel_Click);
             // 
@@ -96,3 +96,4 @@ namespace SmartAccount.UI.Views
         private System.Windows.Forms.Button btnExportInvoicesExcel;
     }
 }
+

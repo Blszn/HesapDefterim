@@ -1,4 +1,4 @@
-namespace SmartAccount.UI.Views
+﻿namespace SmartAccount.UI.Views
 {
     partial class TransactionAddEditForm
     {
@@ -53,7 +53,7 @@ namespace SmartAccount.UI.Views
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(100, 25);
             this.lblTitle.TabIndex = 0;
-            this.lblTitle.Text = "İşlem Ekle";
+            this.lblTitle.Text = "";
             // 
             // label1
             // 
@@ -119,7 +119,7 @@ namespace SmartAccount.UI.Views
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(126, 17);
             this.label4.TabIndex = 7;
-            this.label4.Text = "İlgili Müşteri / Firma";
+            this.label4.Text = "";
             // 
             // cmbCustomer
             // 
@@ -140,7 +140,7 @@ namespace SmartAccount.UI.Views
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(100, 17);
             this.label6.TabIndex = 10;
-            this.label6.Text = "Ödeme Yöntemi";
+            this.label6.Text = "";
             // 
             // cmbPaymentMethod
             // 
@@ -149,12 +149,12 @@ namespace SmartAccount.UI.Views
             this.cmbPaymentMethod.FormattingEnabled = true;
             this.cmbPaymentMethod.Items.AddRange(new object[] {
             "Nakit",
-            "Kredi Kartı",
-            "Banka Kartı",
+            "",
+            "",
             "Banka Havalesi",
-            "Çek",
+            "",
             "Senet",
-            "Diğer"});
+            ""});
             this.cmbPaymentMethod.Location = new System.Drawing.Point(30, 340);
             this.cmbPaymentMethod.Name = "cmbPaymentMethod";
             this.cmbPaymentMethod.Size = new System.Drawing.Size(340, 28);
@@ -168,7 +168,7 @@ namespace SmartAccount.UI.Views
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(59, 17);
             this.label5.TabIndex = 11;
-            this.label5.Text = "Açıklama";
+            this.label5.Text = "";
             // 
             // txtDescription
             // 
@@ -205,7 +205,7 @@ namespace SmartAccount.UI.Views
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(120, 40);
             this.btnCancel.TabIndex = 7;
-            this.btnCancel.Text = "İptal";
+            this.btnCancel.Text = "";
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
@@ -237,7 +237,7 @@ namespace SmartAccount.UI.Views
             this.MinimizeBox = false;
             this.Name = "TransactionAddEditForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "İşlem Formu";
+            this.Text = "";
             this.panelTop.ResumeLayout(false);
             this.panelTop.PerformLayout();
             this.ResumeLayout(false);
@@ -263,3 +263,4 @@ namespace SmartAccount.UI.Views
         private System.Windows.Forms.Button btnCancel;
     }
 }
+

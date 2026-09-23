@@ -1,4 +1,4 @@
-namespace SmartAccount.UI
+﻿namespace SmartAccount.UI
 {
     partial class MainForm
     {
@@ -76,7 +76,7 @@ namespace SmartAccount.UI
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(220, 50);
             this.btnExit.TabIndex = 6;
-            this.btnExit.Text = "Çıkış Yap";
+            this.btnExit.Text = "";
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             this.btnSettings.Dock = System.Windows.Forms.DockStyle.Top;
@@ -118,7 +118,7 @@ namespace SmartAccount.UI
             this.btnProducts.Name = "btnProducts";
             this.btnProducts.Size = new System.Drawing.Size(220, 50);
             this.btnProducts.TabIndex = 8;
-            this.btnProducts.Text = "Stok / Ürünler";
+            this.btnProducts.Text = "";
             this.btnProducts.UseVisualStyleBackColor = true;
 
             // 
@@ -147,7 +147,7 @@ namespace SmartAccount.UI
             this.btnPersonnel.Name = "btnPersonnel";
             this.btnPersonnel.Size = new System.Drawing.Size(220, 50);
             this.btnPersonnel.TabIndex = 6;
-            this.btnPersonnel.Text = "Personel Yönetimi";
+            this.btnPersonnel.Text = "";
             this.btnPersonnel.UseVisualStyleBackColor = true;
             this.btnPersonnel.Click += new System.EventHandler(this.btnPersonnel_Click);
             // 
@@ -162,7 +162,7 @@ namespace SmartAccount.UI
             this.btnDailyReport.Name = "btnDailyReport";
             this.btnDailyReport.Size = new System.Drawing.Size(220, 50);
             this.btnDailyReport.TabIndex = 7;
-            this.btnDailyReport.Text = "Gün Sonu Raporu";
+            this.btnDailyReport.Text = "";
             this.btnDailyReport.UseVisualStyleBackColor = true;
             this.btnDailyReport.Click += new System.EventHandler(this.btnDailyReport_Click);
             // 
@@ -191,7 +191,7 @@ namespace SmartAccount.UI
             this.btnWorks.Name = "btnWorks";
             this.btnWorks.Size = new System.Drawing.Size(220, 50);
             this.btnWorks.TabIndex = 7;
-            this.btnWorks.Text = "İş Takibi";
+            this.btnWorks.Text = "";
             this.btnWorks.UseVisualStyleBackColor = true;
             // 
             // btnTransactions
@@ -219,7 +219,7 @@ namespace SmartAccount.UI
             this.btnCustomers.Name = "btnCustomers";
             this.btnCustomers.Size = new System.Drawing.Size(220, 50);
             this.btnCustomers.TabIndex = 2;
-            this.btnCustomers.Text = "Müşteriler";
+            this.btnCustomers.Text = "";
             this.btnCustomers.UseVisualStyleBackColor = true;
             // 
             // btnDashboard
@@ -317,7 +317,7 @@ namespace SmartAccount.UI
             this.lblUserInfo.Name = "lblUserInfo";
             this.lblUserInfo.Size = new System.Drawing.Size(176, 20);
             this.lblUserInfo.TabIndex = 1;
-            this.lblUserInfo.Text = "Hoşgeldin, admin (Admin)";
+            this.lblUserInfo.Text = "";
             this.lblUserInfo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblPageTitle
@@ -351,7 +351,7 @@ namespace SmartAccount.UI
             this.MinimumSize = new System.Drawing.Size(1024, 600);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "HesapDefterim - İşletme Yönetim Sistemi (ERP)";
+            this.Text = "";
             this.pnlSidebar.ResumeLayout(false);
             this.pnlLogo.ResumeLayout(false);
             this.pnlLogo.PerformLayout();
@@ -386,3 +386,4 @@ namespace SmartAccount.UI
         private System.Windows.Forms.PictureBox pictureBoxLogo;
     }
 }
+

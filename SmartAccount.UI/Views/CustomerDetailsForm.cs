@@ -26,7 +26,7 @@ namespace SmartAccount.UI.Views
             var customer = _context.Customers.Find(_customerId);
             if (customer != null)
             {
-                this.Text = $"Cari Detayları - {customer.FullName}";
+                this.Text = "";
                 lblCustomerName.Text = customer.FullName;
                 LoadExtre();
                 LoadAttachments();
@@ -45,12 +45,12 @@ namespace SmartAccount.UI.Views
 
             var extreItems = transactions.Select(t => new {
                 Tarih = t.Date,
-                IslemTuru = t.Type == "Income" ? "Tahsilat Alındı" : "Ödeme Yapıldı",
+                IslemTuru = t.Type == "Income" ? "" : "",
                 Tutar = t.Amount,
                 Aciklama = t.Description
             }).Concat(debts.Select(d => new {
                 Tarih = d.DueDate,
-                IslemTuru = d.Type == "Receivable" ? "Alacak" : "Borç",
+                IslemTuru = d.Type == "Receivable" ? "Alacak" : "",
                 Tutar = d.Amount,
                 Aciklama = d.Description
             })).OrderByDescending(x => x.Tarih).ToList();
@@ -117,11 +117,11 @@ namespace SmartAccount.UI.Views
         {
             if (dgvExtre.Rows.Count == 0)
             {
-                MessageBox.Show("Dışa aktarılacak kayıt bulunamadı.", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            using (SaveFileDialog sfd = new SaveFileDialog() { Filter = "PDF Dosyası|*.pdf", FileName = "CariEkstre.pdf" })
+            using (SaveFileDialog sfd = new SaveFileDialog() { Filter = "", FileName = "CariEkstre.pdf" })
             {
                 if (sfd.ShowDialog() == DialogResult.OK)
                 {
@@ -171,12 +171,12 @@ namespace SmartAccount.UI.Views
                             stream.Close();
                         }
 
-                        MessageBox.Show("PDF başarıyla oluşturuldu.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         System.Diagnostics.Process.Start("explorer.exe", sfd.FileName);
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("PDF oluşturulurken bir hata oluştu: " + ex.Message, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("" + ex.Message, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
@@ -234,7 +234,7 @@ namespace SmartAccount.UI.Views
                 }
                 else
                 {
-                    MessageBox.Show("Dosya bulunamadı.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -244,7 +244,7 @@ namespace SmartAccount.UI.Views
             if (dgvAttachments.SelectedRows.Count > 0)
             {
                 var attachment = (Attachment)dgvAttachments.SelectedRows[0].DataBoundItem;
-                var result = MessageBox.Show($"'{attachment.FileName}' dosyasını silmek istediğinize emin misiniz?", "Silme Onayı", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                var result = MessageBox.Show("", "", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
                 if (result == DialogResult.Yes)
                 {
@@ -258,19 +258,20 @@ namespace SmartAccount.UI.Views
                         _context.Attachments.Remove(attachment);
                         _context.SaveChanges();
                         LoadAttachments();
-                        MessageBox.Show("Belge başarıyla silindi.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show($"Belge silinirken bir hata oluştu: {ex.Message}", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
             else
             {
-                MessageBox.Show("Lütfen silmek için bir belge seçin.", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
     }
 }
+
 

@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
@@ -42,7 +42,7 @@ namespace SmartAccount.UI.Views
         private void LoadCustomers()
         {
             var customers = _context.Customers.OrderBy(c => c.FullName).ToList();
-            customers.Insert(0, new Customer { Id = 0, FullName = "Seçiniz" });
+            customers.Insert(0, new Customer { Id = 0, FullName = "" });
             cmbCustomer.DataSource = customers;
             cmbCustomer.DisplayMember = "FullName";
             cmbCustomer.ValueMember = "Id";
@@ -52,19 +52,19 @@ namespace SmartAccount.UI.Views
         {
             if (string.IsNullOrWhiteSpace(txtInvoiceNumber.Text))
             {
-                MessageBox.Show("Fatura Numarası zorunludur.");
+                MessageBox.Show("");
                 return;
             }
 
             if ((int)cmbCustomer.SelectedValue == 0)
             {
-                MessageBox.Show("Lütfen müşteri seçiniz.");
+                MessageBox.Show("");
                 return;
             }
 
             if (!decimal.TryParse(txtTotalAmount.Text, out decimal totalAmount))
             {
-                MessageBox.Show("Geçerli bir tutar giriniz.");
+                MessageBox.Show("");
                 return;
             }
             
@@ -101,3 +101,4 @@ namespace SmartAccount.UI.Views
         }
     }
 }
+

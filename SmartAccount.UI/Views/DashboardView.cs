@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
 using SmartAccount.Business.Services;
@@ -77,7 +77,7 @@ namespace SmartAccount.UI.Views
             expenseScatter.Color = Colors.Red;
 
             formsPlot1.Plot.Axes.DateTimeTicksBottom();
-            formsPlot1.Plot.Title("Son 30 Günlük Gelir/Gider Akışı");
+            formsPlot1.Plot.Title("");
             formsPlot1.Plot.ShowLegend();
             formsPlot1.Refresh();
         }
@@ -88,3 +88,4 @@ namespace SmartAccount.UI.Views
         }
     }
 }
+

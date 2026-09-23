@@ -30,7 +30,7 @@ namespace SmartAccount.UI.Views
             }
             else
             {
-                lblTitle.Text = "Borç Ekle";
+                lblTitle.Text = "";
                 panelTop.BackColor = Color.FromArgb(231, 76, 60);
             }
 
@@ -55,7 +55,7 @@ namespace SmartAccount.UI.Views
         {
             if (!decimal.TryParse(txtAmount.Text, out decimal amount) || amount <= 0)
             {
-                MessageBox.Show("Lütfen geçerli bir tutar girin.", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -88,3 +88,4 @@ namespace SmartAccount.UI.Views
         }
     }
 }
+

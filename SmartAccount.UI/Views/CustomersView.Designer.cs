@@ -1,4 +1,4 @@
-namespace SmartAccount.UI.Views
+﻿namespace SmartAccount.UI.Views
 {
     partial class CustomersView
     {
@@ -75,7 +75,7 @@ namespace SmartAccount.UI.Views
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(90, 35);
             this.btnEdit.TabIndex = 4;
-            this.btnEdit.Text = "Düzenle";
+            this.btnEdit.Text = "";
             this.btnEdit.UseVisualStyleBackColor = false;
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
@@ -132,7 +132,7 @@ namespace SmartAccount.UI.Views
             this.txtSearch.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtSearch.Location = new System.Drawing.Point(170, 25);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.PlaceholderText = " Müşteri ara (ad, tel, vergi no)...";
+            this.txtSearch.PlaceholderText = "";
             this.txtSearch.Size = new System.Drawing.Size(250, 29);
             this.txtSearch.TabIndex = 1;
             this.txtSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSearch_KeyDown);
@@ -146,7 +146,7 @@ namespace SmartAccount.UI.Views
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(115, 30);
             this.lblTitle.TabIndex = 0;
-            this.lblTitle.Text = "Müşteriler";
+            this.lblTitle.Text = "";
             // 
             // dgvCustomers
             // 
@@ -214,3 +214,4 @@ namespace SmartAccount.UI.Views
         private System.Windows.Forms.DataGridView dgvCustomers;
     }
 }
+

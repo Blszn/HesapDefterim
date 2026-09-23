@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
 using SmartAccount.Business.Services;
@@ -130,7 +130,7 @@ namespace SmartAccount.UI.Views
             }
             else
             {
-                MessageBox.Show("Lütfen güncellemek için bir kayıt seçin.", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -139,7 +139,7 @@ namespace SmartAccount.UI.Views
             if (dgvTransactions.SelectedRows.Count > 0)
             {
                 int id = (int)dgvTransactions.SelectedRows[0].Cells["Id"].Value;
-                var result = MessageBox.Show("Seçili işlemi silmek istediğinize emin misiniz?", "Onay", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                var result = MessageBox.Show("", "Onay", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 
                 if (result == DialogResult.Yes)
                 {
@@ -150,8 +150,9 @@ namespace SmartAccount.UI.Views
             }
             else
             {
-                MessageBox.Show("Lütfen silmek için bir kayıt seçin.", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
     }
 }
+

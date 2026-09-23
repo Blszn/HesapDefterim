@@ -1,4 +1,4 @@
-namespace SmartAccount.UI.Views
+﻿namespace SmartAccount.UI.Views
 {
     partial class TransactionsView
     {
@@ -121,7 +121,7 @@ namespace SmartAccount.UI.Views
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(100, 35);
             this.btnUpdate.TabIndex = 10;
-            this.btnUpdate.Text = "Güncelle";
+            this.btnUpdate.Text = "";
             this.btnUpdate.UseVisualStyleBackColor = false;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
@@ -178,7 +178,7 @@ namespace SmartAccount.UI.Views
             this.cmbType.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cmbType.FormattingEnabled = true;
             this.cmbType.Items.AddRange(new object[] {
-            "Tümü",
+            "",
             "Gelir",
             "Gider"});
             this.cmbType.Location = new System.Drawing.Point(430, 22);
@@ -305,3 +305,4 @@ namespace SmartAccount.UI.Views
         private System.Windows.Forms.DataGridView dgvTransactions;
     }
 }
+

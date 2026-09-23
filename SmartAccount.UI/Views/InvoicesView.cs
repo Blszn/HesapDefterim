@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
 using SmartAccount.Business.Services;
@@ -39,7 +39,7 @@ namespace SmartAccount.UI.Views
                 Tutar = i.TotalAmount.ToString("C2"),
                 Vergi = i.TotalTaxAmount.ToString("C2"),
                 GenelToplam = i.GrandTotal.ToString("C2"),
-                Durum = i.Status == "Paid" ? "Ödendi" : (i.Status == "Sent" ? "Gönderildi" : "Taslak")
+                Durum = i.Status == "Paid" ? "" : (i.Status == "Sent" ? "" : "Taslak")
             }).ToList();
 
             dgvInvoices.DataSource = displayList;
@@ -62,7 +62,7 @@ namespace SmartAccount.UI.Views
             if (dgvInvoices.SelectedRows.Count > 0)
             {
                 int id = (int)dgvInvoices.SelectedRows[0].Cells["Id"].Value;
-                if (MessageBox.Show("Faturayı silmek istediğinize emin misiniz?", "Onay", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                if (MessageBox.Show("", "Onay", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     var res = _documentService.DeleteInvoice(id);
                     if (res.Success) LoadInvoices();
@@ -89,7 +89,7 @@ namespace SmartAccount.UI.Views
                             try
                             {
                                 _eInvoiceService.GenerateUblXml(invoice, sfd.FileName);
-                                MessageBox.Show("E-Fatura XML dosyası başarıyla oluşturuldu.", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                MessageBox.Show("", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             }
                             catch (Exception ex)
                             {
@@ -101,7 +101,7 @@ namespace SmartAccount.UI.Views
             }
             else
             {
-                MessageBox.Show("Lütfen dışa aktarılacak faturayı seçin.", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
         #endregion
@@ -116,7 +116,7 @@ namespace SmartAccount.UI.Views
                 Tarih = o.Date.ToShortDateString(),
                 Musteri = o.Customer?.FullName ?? "-",
                 Tutar = o.TotalAmount.ToString("C2"),
-                Durum = o.Status == "Accepted" ? "Kabul Edildi" : (o.Status == "Rejected" ? "Reddedildi" : (o.Status == "Sent" ? "Gönderildi" : "Taslak"))
+                Durum = o.Status == "Accepted" ? "Kabul Edildi" : (o.Status == "Rejected" ? "Reddedildi" : (o.Status == "Sent" ? "" : "Taslak"))
             }).ToList();
 
             dgvOffers.DataSource = displayList;
@@ -139,7 +139,7 @@ namespace SmartAccount.UI.Views
             if (dgvOffers.SelectedRows.Count > 0)
             {
                 int id = (int)dgvOffers.SelectedRows[0].Cells["Id"].Value;
-                if (MessageBox.Show("Teklifi silmek istediğinize emin misiniz?", "Onay", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                if (MessageBox.Show("", "Onay", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     var res = _documentService.DeleteOffer(id);
                     if (res.Success) LoadOffers();
@@ -150,3 +150,4 @@ namespace SmartAccount.UI.Views
         #endregion
     }
 }
+

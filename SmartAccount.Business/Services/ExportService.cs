@@ -1,4 +1,4 @@
-using ClosedXML.Excel;
+﻿using ClosedXML.Excel;
 using QuestPDF.Fluent;
 using QuestPDF.Helpers;
 using QuestPDF.Infrastructure;
@@ -25,7 +25,7 @@ namespace SmartAccount.Business.Services
                 // Başlıklar
                 worksheet.Cell(1, 1).Value = "Fatura No";
                 worksheet.Cell(1, 2).Value = "Tarih";
-                worksheet.Cell(1, 3).Value = "Müşteri";
+                worksheet.Cell(1, 3).Value = "";
                 worksheet.Cell(1, 4).Value = "Durum";
                 worksheet.Cell(1, 5).Value = "Tutar";
                 
@@ -41,7 +41,7 @@ namespace SmartAccount.Business.Services
                     worksheet.Cell(row, 3).Value = invoice.Customer?.FullName ?? "";
                     
                     string status = invoice.Status == "Draft" ? "Taslak" :
-                                    invoice.Status == "Paid" ? "Ödendi" : "Gönderildi";
+                                    invoice.Status == "Paid" ? "" : "";
                                     
                     worksheet.Cell(row, 4).Value = status;
                     worksheet.Cell(row, 5).Value = invoice.GrandTotal;
@@ -82,7 +82,7 @@ namespace SmartAccount.Business.Services
                         {
                             header.Cell().Element(CellStyle).Text("Fatura No");
                             header.Cell().Element(CellStyle).Text("Tarih");
-                            header.Cell().Element(CellStyle).Text("Müşteri");
+                            header.Cell().Element(CellStyle).Text("");
                             header.Cell().Element(CellStyle).Text("Durum");
                             header.Cell().Element(CellStyle).Text("Tutar");
 
@@ -99,7 +99,7 @@ namespace SmartAccount.Business.Services
                             table.Cell().Element(Block).Text(invoice.Customer?.FullName ?? "");
                             
                             string status = invoice.Status == "Draft" ? "Taslak" :
-                                            invoice.Status == "Paid" ? "Ödendi" : "Gönderildi";
+                                            invoice.Status == "Paid" ? "" : "";
                             
                             table.Cell().Element(Block).Text(status);
                             table.Cell().Element(Block).Text(invoice.GrandTotal.ToString("C2"));
@@ -124,3 +124,4 @@ namespace SmartAccount.Business.Services
         }
     }
 }
+

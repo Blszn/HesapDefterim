@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
 using SmartAccount.Business.Services;
@@ -21,12 +21,12 @@ namespace SmartAccount.UI.Views
 
             if (_isEditMode)
             {
-                lblTitle.Text = "Müşteri Düzenle";
+                lblTitle.Text = "";
                 LoadCustomerData();
             }
             else
             {
-                lblTitle.Text = "Yeni Müşteri Ekle";
+                lblTitle.Text = "";
             }
 
             txtMobilePhone.KeyPress += Numeric_KeyPress;
@@ -61,7 +61,7 @@ namespace SmartAccount.UI.Views
         {
             if (string.IsNullOrWhiteSpace(txtFullName.Text))
             {
-                MessageBox.Show("Ad Soyad (veya Firma Adı) zorunludur.", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -121,3 +121,4 @@ namespace SmartAccount.UI.Views
         }
     }
 }
+

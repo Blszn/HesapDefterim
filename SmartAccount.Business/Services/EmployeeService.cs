@@ -1,4 +1,4 @@
-using SmartAccount.Core.Data;
+﻿using SmartAccount.Core.Data;
 using SmartAccount.Core.Entities;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,18 +32,18 @@ namespace SmartAccount.Business.Services
         public (bool Success, string Message) AddEmployee(Employee employee)
         {
             if (string.IsNullOrWhiteSpace(employee.Name) || string.IsNullOrWhiteSpace(employee.Surname))
-                return (false, "Personel ad ve soyadı boş olamaz.");
+                return (false, "");
 
             _context.Employees.Add(employee);
             _context.SaveChanges();
-            return (true, "Personel başarıyla eklendi.");
+            return (true, "");
         }
 
         public (bool Success, string Message) UpdateEmployee(Employee employee)
         {
             var existing = _context.Employees.FirstOrDefault(e => e.Id == employee.Id);
             if (existing == null)
-                return (false, "Personel bulunamadı.");
+                return (false, "");
 
             existing.Name = employee.Name;
             existing.Surname = employee.Surname;
@@ -55,18 +55,19 @@ namespace SmartAccount.Business.Services
             existing.IsActive = employee.IsActive;
 
             _context.SaveChanges();
-            return (true, "Personel başarıyla güncellendi.");
+            return (true, "");
         }
 
         public (bool Success, string Message) DeleteEmployee(int id)
         {
             var existing = _context.Employees.FirstOrDefault(e => e.Id == id);
             if (existing == null)
-                return (false, "Personel bulunamadı.");
+                return (false, "");
 
             _context.Employees.Remove(existing);
             _context.SaveChanges();
-            return (true, "Personel başarıyla silindi.");
+            return (true, "");
         }
     }
 }
+

@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Linq;
 using System.Windows.Forms;
 using SmartAccount.Business.Services;
@@ -56,7 +56,7 @@ namespace SmartAccount.UI.Views
         {
             if (dgvPersonnel.SelectedRows.Count == 0)
             {
-                MessageBox.Show("Lütfen düzenlemek için bir personel seçin.", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -72,14 +72,14 @@ namespace SmartAccount.UI.Views
         {
             if (dgvPersonnel.SelectedRows.Count == 0)
             {
-                MessageBox.Show("Lütfen silmek için bir personel seçin.", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             int id = (int)dgvPersonnel.SelectedRows[0].Cells["Id"].Value;
             var empName = dgvPersonnel.SelectedRows[0].Cells["AdSoyad"].Value.ToString();
 
-            if (MessageBox.Show($"{empName} isimli personeli silmek istediğinize emin misiniz?", "Onay", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show("", "Onay", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 var result = _employeeService.DeleteEmployee(id);
                 if (result.Success)
@@ -94,3 +94,4 @@ namespace SmartAccount.UI.Views
         }
     }
 }
+

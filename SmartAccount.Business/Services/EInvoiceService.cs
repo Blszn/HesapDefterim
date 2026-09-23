@@ -1,4 +1,4 @@
-using SmartAccount.Core.Entities;
+﻿using SmartAccount.Core.Entities;
 using System;
 using System.IO;
 using System.Text;
@@ -34,7 +34,7 @@ namespace SmartAccount.Business.Services
                     new XElement(cac + "AccountingSupplierParty",
                         new XElement(cac + "Party",
                             new XElement(cac + "PartyName",
-                                new XElement(cbc + "Name", "Bizim Şirket A.Ş.")
+                                new XElement(cbc + "Name", "")
                             )
                         )
                     ),
@@ -44,7 +44,7 @@ namespace SmartAccount.Business.Services
                                 new XElement(cbc + "ID", invoice.Customer?.TaxNumber ?? "11111111111")
                             ),
                             new XElement(cac + "PartyName",
-                                new XElement(cbc + "Name", invoice.Customer?.FullName ?? "Bilinmeyen Müşteri")
+                                new XElement(cbc + "Name", invoice.Customer?.FullName ?? "")
                             )
                         )
                     ),
@@ -61,3 +61,4 @@ namespace SmartAccount.Business.Services
         }
     }
 }
+

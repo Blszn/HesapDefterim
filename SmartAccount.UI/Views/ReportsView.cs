@@ -1,4 +1,4 @@
-using SmartAccount.Business.Services;
+﻿using SmartAccount.Business.Services;
 using SmartAccount.Core.Data;
 using System;
 using System.Linq;
@@ -35,7 +35,7 @@ namespace SmartAccount.UI.Views
                     {
                         var invoices = _documentService.GetInvoices();
                         _exportService.ExportInvoicesToPdf(invoices, sfd.FileName);
-                        MessageBox.Show("PDF başarıyla oluşturuldu.", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     catch (Exception ex)
                     {
@@ -55,7 +55,7 @@ namespace SmartAccount.UI.Views
                     {
                         var invoices = _documentService.GetInvoices();
                         _exportService.ExportInvoicesToExcel(invoices, sfd.FileName);
-                        MessageBox.Show("Excel dosyası başarıyla oluşturuldu.", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     catch (Exception ex)
                     {
@@ -66,3 +66,4 @@ namespace SmartAccount.UI.Views
         }
     }
 }
+

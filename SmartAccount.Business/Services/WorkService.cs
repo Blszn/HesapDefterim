@@ -33,20 +33,20 @@ namespace SmartAccount.Business.Services
         public (bool Success, string Message) AddWork(Work work)
         {
             if (string.IsNullOrWhiteSpace(work.Description))
-                return (false, "İş açıklaması/başlığı boş olamaz.");
+                work.Description = " ";
 
             _context.Works.Add(work);
             _context.SaveChanges();
-            return (true, "İş/Görev başarıyla eklendi.");
+            return (true, "");
         }
 
         public (bool Success, string Message) UpdateWork(Work work)
         {
             if (string.IsNullOrWhiteSpace(work.Description))
-                return (false, "İş açıklaması/başlığı boş olamaz.");
+                work.Description = " ";
 
             var existing = _context.Works.FirstOrDefault(w => w.Id == work.Id);
-            if (existing == null) return (false, "Kayıt bulunamadı.");
+            if (existing == null) return (false, "");
 
             existing.Description = work.Description;
             existing.Notes = work.Notes;
@@ -56,17 +56,17 @@ namespace SmartAccount.Business.Services
             existing.CustomerId = work.CustomerId;
 
             _context.SaveChanges();
-            return (true, "İş/Görev başarıyla güncellendi.");
+            return (true, "");
         }
         
         public (bool Success, string Message) DeleteWork(int id)
         {
             var work = _context.Works.FirstOrDefault(w => w.Id == id);
-            if (work == null) return (false, "İş bulunamadı.");
+            if (work == null) return (false, "");
 
             _context.Works.Remove(work);
             _context.SaveChanges();
-            return (true, "İş başarıyla silindi.");
+            return (true, "");
         }
         #endregion
 
@@ -86,22 +86,23 @@ namespace SmartAccount.Business.Services
         public (bool Success, string Message) AddReminder(Reminder reminder)
         {
             if (string.IsNullOrWhiteSpace(reminder.Description))
-                return (false, "Hatırlatıcı açıklaması boş olamaz.");
+                return (false, "");
 
             _context.Reminders.Add(reminder);
             _context.SaveChanges();
-            return (true, "Hatırlatıcı başarıyla eklendi.");
+            return (true, "");
         }
 
         public (bool Success, string Message) MarkReminderAsRead(int id)
         {
             var rem = _context.Reminders.FirstOrDefault(r => r.Id == id);
-            if (rem == null) return (false, "Hatırlatıcı bulunamadı.");
+            if (rem == null) return (false, "");
 
             rem.IsCompleted = true;
             _context.SaveChanges();
-            return (true, "Tamamlandı olarak işaretlendi.");
+            return (true, "");
         }
         #endregion
     }
 }
+

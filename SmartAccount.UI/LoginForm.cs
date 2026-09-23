@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
 using SmartAccount.Business.Services;
@@ -25,7 +25,7 @@ namespace SmartAccount.UI
 
             if (string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(password))
             {
-                lblError.Text = "Lütfen kullanıcı adı ve şifre giriniz.";
+                lblError.Text = "";
                 lblError.Visible = true;
                 return;
             }
@@ -51,3 +51,4 @@ namespace SmartAccount.UI
         }
     }
 }
+

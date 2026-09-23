@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
@@ -71,7 +71,7 @@ namespace SmartAccount.UI.Views
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(82, 35);
             this.btnEdit.TabIndex = 2;
-            this.btnEdit.Text = "Düzenle";
+            this.btnEdit.Text = "";
             this.btnEdit.UseVisualStyleBackColor = false;
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
@@ -109,7 +109,7 @@ namespace SmartAccount.UI.Views
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(199, 30);
             this.lblTitle.TabIndex = 4;
-            this.lblTitle.Text = "Personel Yönetimi";
+            this.lblTitle.Text = "";
             // 
             // PersonnelListForm
             // 
@@ -135,3 +135,4 @@ namespace SmartAccount.UI.Views
         private System.Windows.Forms.Label lblTitle;
     }
 }
+

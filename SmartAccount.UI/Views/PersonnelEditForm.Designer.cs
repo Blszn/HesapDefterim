@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
@@ -127,7 +127,7 @@ namespace SmartAccount.UI.Views
             this.lblSalary.Name = "lblSalary";
             this.lblSalary.Size = new System.Drawing.Size(38, 15);
             this.lblSalary.TabIndex = 10;
-            this.lblSalary.Text = "Maaş:";
+            this.lblSalary.Text = "";
             // 
             // numSalary
             // 
@@ -149,7 +149,7 @@ namespace SmartAccount.UI.Views
             this.lblStartDate.Name = "lblStartDate";
             this.lblStartDate.Size = new System.Drawing.Size(89, 15);
             this.lblStartDate.TabIndex = 12;
-            this.lblStartDate.Text = "Başlama Tarihi:";
+            this.lblStartDate.Text = "";
             // 
             // dtpStartDate
             // 
@@ -194,7 +194,7 @@ namespace SmartAccount.UI.Views
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(100, 35);
             this.btnCancel.TabIndex = 16;
-            this.btnCancel.Text = "İptal";
+            this.btnCancel.Text = "";
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
@@ -225,7 +225,7 @@ namespace SmartAccount.UI.Views
             this.MinimizeBox = false;
             this.Name = "PersonnelEditForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Personel Ekle/Düzenle";
+            this.Text = "";
             this.Load += new System.EventHandler(this.PersonnelEditForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numSalary)).EndInit();
             this.ResumeLayout(false);
@@ -252,3 +252,4 @@ namespace SmartAccount.UI.Views
         private System.Windows.Forms.Button btnCancel;
     }
 }
+

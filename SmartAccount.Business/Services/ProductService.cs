@@ -1,4 +1,4 @@
-using SmartAccount.Core.Data;
+﻿using SmartAccount.Core.Data;
 using SmartAccount.Core.Entities;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,7 +31,7 @@ namespace SmartAccount.Business.Services
             {
                 _context.Products.Add(product);
                 _context.SaveChanges();
-                return (true, "Ürün başarıyla eklendi.");
+                return (true, "");
             }
             catch (Exception ex)
             {
@@ -45,7 +45,7 @@ namespace SmartAccount.Business.Services
             {
                 _context.Products.Update(product);
                 _context.SaveChanges();
-                return (true, "Ürün güncellendi.");
+                return (true, "");
             }
             catch (Exception ex)
             {
@@ -62,9 +62,9 @@ namespace SmartAccount.Business.Services
                 {
                     _context.Products.Remove(product);
                     _context.SaveChanges();
-                    return (true, "Ürün silindi.");
+                    return (true, "");
                 }
-                return (false, "Ürün bulunamadı.");
+                return (false, "");
             }
             catch (Exception ex)
             {
@@ -73,3 +73,4 @@ namespace SmartAccount.Business.Services
         }
     }
 }
+

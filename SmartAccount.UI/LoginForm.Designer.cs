@@ -1,4 +1,4 @@
-namespace SmartAccount.UI
+﻿namespace SmartAccount.UI
 {
     partial class LoginForm
     {
@@ -63,7 +63,7 @@ namespace SmartAccount.UI
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(320, 45);
             this.btnLogin.TabIndex = 2;
-            this.btnLogin.Text = "GİRİŞ YAP";
+            this.btnLogin.Text = "";
             this.btnLogin.UseVisualStyleBackColor = false;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
@@ -129,7 +129,7 @@ namespace SmartAccount.UI
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(78, 17);
             this.label1.TabIndex = 6;
-            this.label1.Text = "Kullanıcı Adı";
+            this.label1.Text = "";
             // 
             // label2
             // 
@@ -140,7 +140,7 @@ namespace SmartAccount.UI
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(34, 17);
             this.label2.TabIndex = 7;
-            this.label2.Text = "Şifre";
+            this.label2.Text = "";
             // 
             // LoginForm
             // 
@@ -153,7 +153,7 @@ namespace SmartAccount.UI
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Giriş Yap - HesapDefterim";
+            this.Text = "";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -171,3 +171,4 @@ namespace SmartAccount.UI
         private System.Windows.Forms.Label label1;
     }
 }
+

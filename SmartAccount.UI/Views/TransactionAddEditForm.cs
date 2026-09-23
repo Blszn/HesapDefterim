@@ -48,7 +48,7 @@ namespace SmartAccount.UI.Views
 
             if (_transactionId.HasValue)
             {
-                lblTitle.Text = _type == "Income" ? "Gelir Güncelle" : "Gider Güncelle";
+                lblTitle.Text = _type == "Income" ? "" : "";
                 LoadTransactionData();
             }
 
@@ -100,7 +100,7 @@ namespace SmartAccount.UI.Views
         private void LoadCustomers()
         {
             var customers = _context.Customers.OrderBy(c => c.FullName).ToList();
-            customers.Insert(0, new Customer { Id = 0, FullName = "Seçiniz (Opsiyonel)" });
+            customers.Insert(0, new Customer { Id = 0, FullName = "" });
             cmbCustomer.DataSource = customers;
             cmbCustomer.DisplayMember = "FullName";
             cmbCustomer.ValueMember = "Id";
@@ -110,7 +110,7 @@ namespace SmartAccount.UI.Views
         {
             if (!decimal.TryParse(txtAmount.Text, out decimal amount))
             {
-                MessageBox.Show("Lütfen geçerli bir tutar girin.", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -179,4 +179,5 @@ namespace SmartAccount.UI.Views
         }
     }
 }
+
 

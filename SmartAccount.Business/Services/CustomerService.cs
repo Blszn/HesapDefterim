@@ -1,4 +1,4 @@
-using SmartAccount.Core.Data;
+﻿using SmartAccount.Core.Data;
 using SmartAccount.Core.Entities;
 using System.Collections.Generic;
 using System.Linq;
@@ -58,12 +58,12 @@ namespace SmartAccount.Business.Services
         {
             if (string.IsNullOrWhiteSpace(customer.FullName))
             {
-                return (false, "Müşteri adı boş olamaz.");
+                return (false, "");
             }
 
             _context.Customers.Add(customer);
             _context.SaveChanges();
-            return (true, "Müşteri başarıyla eklendi.");
+            return (true, "");
         }
 
         public (bool Success, string Message) UpdateCustomer(Customer customer)
@@ -71,12 +71,12 @@ namespace SmartAccount.Business.Services
             var existingCustomer = _context.Customers.FirstOrDefault(c => c.Id == customer.Id);
             if (existingCustomer == null)
             {
-                return (false, "Müşteri bulunamadı.");
+                return (false, "");
             }
 
             if (string.IsNullOrWhiteSpace(customer.FullName))
             {
-                return (false, "Müşteri adı boş olamaz.");
+                return (false, "");
             }
 
             existingCustomer.FullName = customer.FullName;
@@ -89,7 +89,7 @@ namespace SmartAccount.Business.Services
             existingCustomer.Notes = customer.Notes;
 
             _context.SaveChanges();
-            return (true, "Müşteri başarıyla güncellendi.");
+            return (true, "");
         }
 
         public (bool Success, string Message) DeleteCustomer(int id)
@@ -97,12 +97,12 @@ namespace SmartAccount.Business.Services
             var customer = _context.Customers.FirstOrDefault(c => c.Id == id);
             if (customer == null)
             {
-                return (false, "Müşteri bulunamadı.");
+                return (false, "");
             }
 
             _context.Customers.Remove(customer); // Entity Framework will handle soft delete via DbContext configuration
             _context.SaveChanges();
-            return (true, "Müşteri başarıyla silindi.");
+            return (true, "");
         }
 
         public List<Customer> SearchCustomers(string keyword)
@@ -130,3 +130,4 @@ namespace SmartAccount.Business.Services
         }
     }
 }
+

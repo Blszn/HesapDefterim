@@ -1,4 +1,4 @@
-using SmartAccount.Core.Data;
+﻿using SmartAccount.Core.Data;
 using SmartAccount.Core.Entities;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,34 +33,34 @@ namespace SmartAccount.Business.Services
         public (bool Success, string Message) AddInvoice(Invoice invoice)
         {
             if (string.IsNullOrWhiteSpace(invoice.InvoiceNumber))
-                return (false, "Fatura numarası boş olamaz.");
+                return (false, "");
                 
             if (invoice.TotalAmount <= 0)
-                return (false, "Tutar 0'dan büyük olmalıdır.");
+                return (false, "");
 
             _context.Invoices.Add(invoice);
             _context.SaveChanges();
-            return (true, "Fatura başarıyla eklendi.");
+            return (true, "");
         }
 
         public (bool Success, string Message) UpdateInvoiceStatus(int id, string status)
         {
             var invoice = _context.Invoices.FirstOrDefault(i => i.Id == id);
-            if (invoice == null) return (false, "Fatura bulunamadı.");
+            if (invoice == null) return (false, "");
 
             invoice.Status = status;
             _context.SaveChanges();
-            return (true, "Fatura durumu güncellendi.");
+            return (true, "");
         }
         
         public (bool Success, string Message) DeleteInvoice(int id)
         {
             var invoice = _context.Invoices.FirstOrDefault(i => i.Id == id);
-            if (invoice == null) return (false, "Fatura bulunamadı.");
+            if (invoice == null) return (false, "");
 
             _context.Invoices.Remove(invoice);
             _context.SaveChanges();
-            return (true, "Fatura başarıyla silindi.");
+            return (true, "");
         }
         #endregion
 
@@ -84,32 +84,33 @@ namespace SmartAccount.Business.Services
         public (bool Success, string Message) AddOffer(Offer offer)
         {
             if (offer.TotalAmount <= 0)
-                return (false, "Tutar 0'dan büyük olmalıdır.");
+                return (false, "");
 
             _context.Offers.Add(offer);
             _context.SaveChanges();
-            return (true, "Teklif başarıyla eklendi.");
+            return (true, "");
         }
 
         public (bool Success, string Message) UpdateOfferStatus(int id, string status)
         {
             var offer = _context.Offers.FirstOrDefault(o => o.Id == id);
-            if (offer == null) return (false, "Teklif bulunamadı.");
+            if (offer == null) return (false, "");
 
             offer.Status = status;
             _context.SaveChanges();
-            return (true, "Teklif durumu güncellendi.");
+            return (true, "");
         }
 
         public (bool Success, string Message) DeleteOffer(int id)
         {
             var offer = _context.Offers.FirstOrDefault(o => o.Id == id);
-            if (offer == null) return (false, "Teklif bulunamadı.");
+            if (offer == null) return (false, "");
 
             _context.Offers.Remove(offer);
             _context.SaveChanges();
-            return (true, "Teklif başarıyla silindi.");
+            return (true, "");
         }
         #endregion
     }
 }
+

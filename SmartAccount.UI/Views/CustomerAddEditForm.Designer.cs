@@ -1,4 +1,4 @@
-namespace SmartAccount.UI.Views
+﻿namespace SmartAccount.UI.Views
 {
     partial class CustomerAddEditForm
     {
@@ -57,7 +57,7 @@ namespace SmartAccount.UI.Views
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(166, 25);
             this.lblTitle.TabIndex = 0;
-            this.lblTitle.Text = "Müşteri Düzenle";
+            this.lblTitle.Text = "";
             // 
             // label1
             // 
@@ -67,7 +67,7 @@ namespace SmartAccount.UI.Views
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(130, 17);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Ad Soyad / Firma Adı *";
+            this.label1.Text = "";
             // 
             // txtFullName
             // 
@@ -165,7 +165,7 @@ namespace SmartAccount.UI.Views
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(95, 17);
             this.label6.TabIndex = 11;
-            this.label6.Text = "Vergi Numarası";
+            this.label6.Text = "";
             // 
             // txtAddress
             // 
@@ -231,7 +231,7 @@ namespace SmartAccount.UI.Views
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(120, 40);
             this.btnCancel.TabIndex = 9;
-            this.btnCancel.Text = "İptal";
+            this.btnCancel.Text = "";
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
@@ -267,7 +267,7 @@ namespace SmartAccount.UI.Views
             this.MinimizeBox = false;
             this.Name = "CustomerAddEditForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Müşteri Ekle / Düzenle";
+            this.Text = "";
             this.panelTop.ResumeLayout(false);
             this.panelTop.PerformLayout();
             this.ResumeLayout(false);
@@ -297,3 +297,4 @@ namespace SmartAccount.UI.Views
         private System.Windows.Forms.Button btnCancel;
     }
 }
+

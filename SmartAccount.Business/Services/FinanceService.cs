@@ -30,11 +30,11 @@ namespace SmartAccount.Business.Services
         public (bool Success, string Message) AddCategory(Category category)
         {
             if (string.IsNullOrWhiteSpace(category.Name))
-                return (false, "Kategori adı boş olamaz.");
+                return (false, "");
 
             _context.Categories.Add(category);
             _context.SaveChanges();
-            return (true, "Kategori başarıyla eklendi.");
+            return (true, "");
         }
         
         public void EnsureDefaultCategoriesExist()
@@ -43,13 +43,13 @@ namespace SmartAccount.Business.Services
             {
                 var defaults = new List<Category>
                 {
-                    new Category { Name = "Ürün Satışı", Type = "Income" },
+                    new Category { Name = "", Type = "Income" },
                     new Category { Name = "Hizmet Geliri", Type = "Income" },
                     new Category { Name = "Kira Geliri", Type = "Income" },
-                    new Category { Name = "Personel Maaşları", Type = "Expense" },
+                    new Category { Name = "", Type = "Expense" },
                     new Category { Name = "Kira", Type = "Expense" },
-                    new Category { Name = "Fatura (Elektrik-Su-İnternet)", Type = "Expense" },
-                    new Category { Name = "Malzeme Alımı", Type = "Expense" },
+                    new Category { Name = "", Type = "Expense" },
+                    new Category { Name = "", Type = "Expense" },
                     new Category { Name = "Vergiler", Type = "Expense" }
                 };
                 _context.Categories.AddRange(defaults);
@@ -81,14 +81,14 @@ namespace SmartAccount.Business.Services
         public (bool Success, string Message) AddTransaction(Transaction transaction)
         {
             if (transaction.Amount <= 0)
-                return (false, "Tutar 0'dan büyük olmalıdır.");
+                return (false, "");
             
             if (transaction.CategoryId == null || transaction.CategoryId == 0)
-                return (false, "Lütfen bir kategori seçiniz.");
+                return (false, "");
 
             _context.Transactions.Add(transaction);
             _context.SaveChanges();
-            return (true, "İşlem başarıyla eklendi.");
+            return (true, "");
         }
 
         public Transaction GetTransactionById(int id)
@@ -99,24 +99,24 @@ namespace SmartAccount.Business.Services
         public (bool Success, string Message) UpdateTransaction(Transaction transaction)
         {
             if (transaction.Amount <= 0)
-                return (false, "Tutar 0'dan büyük olmalıdır.");
+                return (false, "");
             
             if (transaction.CategoryId == null || transaction.CategoryId == 0)
-                return (false, "Lütfen bir kategori seçiniz.");
+                return (false, "");
 
             _context.Transactions.Update(transaction);
             _context.SaveChanges();
-            return (true, "İşlem başarıyla güncellendi.");
+            return (true, "");
         }
 
         public (bool Success, string Message) DeleteTransaction(int id)
         {
             var tx = _context.Transactions.FirstOrDefault(t => t.Id == id);
-            if (tx == null) return (false, "İşlem bulunamadı.");
+            if (tx == null) return (false, "");
 
             _context.Transactions.Remove(tx);
             _context.SaveChanges();
-            return (true, "İşlem başarıyla silindi.");
+            return (true, "");
         }
         #endregion
 
@@ -137,23 +137,24 @@ namespace SmartAccount.Business.Services
         public (bool Success, string Message) AddDebt(Debt debt)
         {
             if (debt.Amount <= 0)
-                return (false, "Tutar 0'dan büyük olmalıdır.");
+                return (false, "");
 
             _context.Debts.Add(debt);
             _context.SaveChanges();
-            return (true, "Kayıt başarıyla eklendi.");
+            return (true, "");
         }
         
         public (bool Success, string Message) MarkDebtAsPaid(int id)
         {
             var debt = _context.Debts.FirstOrDefault(d => d.Id == id);
-            if (debt == null) return (false, "Kayıt bulunamadı.");
+            if (debt == null) return (false, "");
 
             debt.Status = "Paid";
             _context.SaveChanges();
-            return (true, "Ödendi olarak işaretlendi.");
+            return (true, "");
         }
         #endregion
     }
 }
+
 

@@ -1,4 +1,4 @@
-namespace SmartAccount.UI.Views
+﻿namespace SmartAccount.UI.Views
 {
     partial class WorksView
     {
@@ -54,7 +54,7 @@ namespace SmartAccount.UI.Views
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(101, 30);
             this.lblTitle.TabIndex = 0;
-            this.lblTitle.Text = "İş Takibi";
+            this.lblTitle.Text = "";
             // 
             // cmbStatusFilter
             // 
@@ -62,10 +62,10 @@ namespace SmartAccount.UI.Views
             this.cmbStatusFilter.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cmbStatusFilter.FormattingEnabled = true;
             this.cmbStatusFilter.Items.AddRange(new object[] {
-            "Tümü",
+            "",
             "Bekliyor",
             "Devam Ediyor",
-            "Tamamlandı"});
+            ""});
             this.cmbStatusFilter.Location = new System.Drawing.Point(150, 22);
             this.cmbStatusFilter.Name = "cmbStatusFilter";
             this.cmbStatusFilter.Size = new System.Drawing.Size(140, 28);
@@ -98,7 +98,7 @@ namespace SmartAccount.UI.Views
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(90, 35);
             this.btnAdd.TabIndex = 7;
-            this.btnAdd.Text = "Yeni İş";
+            this.btnAdd.Text = "";
             this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
@@ -114,7 +114,7 @@ namespace SmartAccount.UI.Views
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(90, 35);
             this.btnEdit.TabIndex = 8;
-            this.btnEdit.Text = "Düzenle";
+            this.btnEdit.Text = "";
             this.btnEdit.UseVisualStyleBackColor = false;
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
@@ -198,3 +198,4 @@ namespace SmartAccount.UI.Views
         private System.Windows.Forms.DataGridView dgvWorks;
     }
 }
+

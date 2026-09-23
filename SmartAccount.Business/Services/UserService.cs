@@ -28,8 +28,8 @@ namespace SmartAccount.Business.Services
                     PasswordHash = hash,
                     Salt = salt,
                     Role = "Admin",
-                    SecurityQuestion = "En sevdiğiniz renk?",
-                    SecurityAnswerHash = SecurityHelper.HashPassword("mavi", salt)
+                    SecurityQuestion = "",
+                    SecurityAnswerHash = SecurityHelper.HashPassword("", salt)
                 };
 
                 _context.Users.Add(adminUser);
@@ -42,12 +42,7 @@ namespace SmartAccount.Business.Services
             var user = _context.Users.FirstOrDefault(u => u.Username == username);
             if (user == null)
             {
-                return (false, "Kullanıcı adı veya şifre hatalı.", null);
-            }
-
-            if (user.LockoutEnd.HasValue && user.LockoutEnd.Value > DateTime.Now)
-            {
-                return (false, $"Hesabınız kilitli. Lütfen {user.LockoutEnd.Value:HH:mm:ss} sonrasında tekrar deneyin.", null);
+                return (false, "", null);
             }
 
             bool isValid = SecurityHelper.VerifyPassword(password, user.PasswordHash, user.Salt);
@@ -57,20 +52,13 @@ namespace SmartAccount.Business.Services
                 user.FailedLoginAttempts = 0;
                 user.LockoutEnd = null;
                 _context.SaveChanges();
-                return (true, "Giriş başarılı.", user);
+                return (true, "", user);
             }
             else
             {
-                user.FailedLoginAttempts++;
-                if (user.FailedLoginAttempts >= 3)
-                {
-                    user.LockoutEnd = DateTime.Now.AddMinutes(5); // 5 dakika bloklama
-                    _context.SaveChanges();
-                    return (false, "Çok fazla hatalı deneme! Hesabınız 5 dakika kilitlendi.", null);
-                }
-                _context.SaveChanges();
-                return (false, "Kullanıcı adı veya şifre hatalı.", null);
+                return (false, "", null);
             }
         }
     }
 }
+

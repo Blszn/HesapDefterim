@@ -1,4 +1,4 @@
-namespace SmartAccount.UI.Views
+﻿namespace SmartAccount.UI.Views
 {
     partial class DashboardView
     {
@@ -75,7 +75,7 @@ namespace SmartAccount.UI.Views
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(183, 30);
             this.lblTitle.TabIndex = 0;
-            this.lblTitle.Text = "Genel Durum (Özet)";
+            this.lblTitle.Text = "";
             // 
             // btnRefresh
             // 
@@ -198,7 +198,7 @@ namespace SmartAccount.UI.Views
             this.lblCustomersTitle.ForeColor = System.Drawing.Color.Gray;
             this.lblCustomersTitle.Location = new System.Drawing.Point(20, 20);
             this.lblCustomersTitle.Name = "lblCustomersTitle";
-            this.lblCustomersTitle.Text = "Aktif Müşteriler";
+            this.lblCustomersTitle.Text = "";
             // 
             // lblActiveCustomers
             // 
@@ -266,7 +266,7 @@ namespace SmartAccount.UI.Views
             this.lblPendingWorksTitle.ForeColor = System.Drawing.Color.Gray;
             this.lblPendingWorksTitle.Location = new System.Drawing.Point(20, 20);
             this.lblPendingWorksTitle.Name = "lblPendingWorksTitle";
-            this.lblPendingWorksTitle.Text = "Devam Eden/Bekleyen İşler";
+            this.lblPendingWorksTitle.Text = "";
             // 
             // lblPendingWorks
             // 
@@ -350,3 +350,4 @@ namespace SmartAccount.UI.Views
         private ScottPlot.WinForms.FormsPlot formsPlot1;
     }
 }
+

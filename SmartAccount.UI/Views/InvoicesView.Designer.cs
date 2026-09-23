@@ -1,4 +1,4 @@
-namespace SmartAccount.UI.Views
+﻿namespace SmartAccount.UI.Views
 {
     partial class InvoicesView
     {
@@ -159,7 +159,7 @@ namespace SmartAccount.UI.Views
             this.btnDownloadEInvoice.Name = "btnDownloadEInvoice";
             this.btnDownloadEInvoice.Size = new System.Drawing.Size(150, 35);
             this.btnDownloadEInvoice.TabIndex = 8;
-            this.btnDownloadEInvoice.Text = "E-Fatura İndir";
+            this.btnDownloadEInvoice.Text = "";
             this.btnDownloadEInvoice.UseVisualStyleBackColor = false;
             this.btnDownloadEInvoice.Click += new System.EventHandler(this.btnDownloadEInvoice_Click);
             // 
@@ -289,3 +289,4 @@ namespace SmartAccount.UI.Views
         private System.Windows.Forms.DataGridView dgvOffers;
     }
 }
+

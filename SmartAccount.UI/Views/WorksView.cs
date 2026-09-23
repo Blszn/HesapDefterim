@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
 using SmartAccount.Business.Services;
@@ -40,7 +40,7 @@ namespace SmartAccount.UI.Views
                 Musteri = w.Customer?.FullName ?? "-",
                 BaslamaTarihi = w.StartDate.ToShortDateString(),
                 BitisTarihi = w.EndDate?.ToShortDateString() ?? "-",
-                Durum = w.Status == "Completed" ? "Tamamlandı" : (w.Status == "InProgress" ? "Devam Ediyor" : "Planlandı")
+                Durum = w.Status == "Completed" ? "" : (w.Status == "InProgress" ? "Devam Ediyor" : "")
             }).ToList();
 
             dgvWorks.DataSource = displayList;
@@ -83,7 +83,7 @@ namespace SmartAccount.UI.Views
             }
             else
             {
-                MessageBox.Show("Lütfen düzenlemek için bir iş seçin.");
+                MessageBox.Show("");
             }
         }
 
@@ -92,7 +92,7 @@ namespace SmartAccount.UI.Views
             if (dgvWorks.SelectedRows.Count > 0)
             {
                 int id = (int)dgvWorks.SelectedRows[0].Cells["Id"].Value;
-                if (MessageBox.Show("İşi silmek istediğinize emin misiniz?", "Onay", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                if (MessageBox.Show("", "Onay", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     var res = _workService.DeleteWork(id);
                     if (res.Success) LoadWorks();
@@ -101,8 +101,9 @@ namespace SmartAccount.UI.Views
             }
             else
             {
-                MessageBox.Show("Lütfen silmek için bir iş seçin.");
+                MessageBox.Show("");
             }
         }
     }
 }
+

@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
 using SmartAccount.Business.Services;
@@ -77,7 +77,7 @@ namespace SmartAccount.UI.Views
             }
             else
             {
-                MessageBox.Show("Lütfen düzenlemek için bir müşteri seçin.", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -86,7 +86,7 @@ namespace SmartAccount.UI.Views
             if (dgvCustomers.SelectedRows.Count > 0)
             {
                 var customer = (Customer)dgvCustomers.SelectedRows[0].DataBoundItem;
-                var result = MessageBox.Show($"{customer.FullName} adlı müşteriyi silmek istediğinize emin misiniz?", "Silme Onayı", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                var result = MessageBox.Show("", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 
                 if (result == DialogResult.Yes)
                 {
@@ -104,7 +104,7 @@ namespace SmartAccount.UI.Views
             }
             else
             {
-                MessageBox.Show("Lütfen silmek için bir müşteri seçin.", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -120,7 +120,7 @@ namespace SmartAccount.UI.Views
             }
             else
             {
-                MessageBox.Show("Lütfen detaylarını görmek için bir müşteri seçin.", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -141,3 +141,4 @@ namespace SmartAccount.UI.Views
         }
     }
 }
+

@@ -1,4 +1,4 @@
-namespace SmartAccount.UI.Views
+﻿namespace SmartAccount.UI.Views
 {
     partial class InvoiceAddEditForm
     {
@@ -66,7 +66,7 @@ namespace SmartAccount.UI.Views
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(95, 15);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Fatura Numarası";
+            this.label1.Text = "";
             // 
             // txtInvoiceNumber
             // 
@@ -83,7 +83,7 @@ namespace SmartAccount.UI.Views
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(32, 15);
             this.label2.TabIndex = 3;
-            this.label2.Text = "Türü";
+            this.label2.Text = "";
             // 
             // cmbType
             // 
@@ -91,8 +91,8 @@ namespace SmartAccount.UI.Views
             this.cmbType.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cmbType.FormattingEnabled = true;
             this.cmbType.Items.AddRange(new object[] {
-            "Satış",
-            "Alış"});
+            "",
+            ""});
             this.cmbType.Location = new System.Drawing.Point(220, 100);
             this.cmbType.Name = "cmbType";
             this.cmbType.Size = new System.Drawing.Size(180, 28);
@@ -105,7 +105,7 @@ namespace SmartAccount.UI.Views
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(47, 15);
             this.label3.TabIndex = 5;
-            this.label3.Text = "Müşteri";
+            this.label3.Text = "";
             // 
             // cmbCustomer
             // 
@@ -201,9 +201,9 @@ namespace SmartAccount.UI.Views
             this.cmbStatus.FormattingEnabled = true;
             this.cmbStatus.Items.AddRange(new object[] {
             "Bekliyor",
-            "Ödendi",
+            "",
             "Gecikti",
-            "İptal Edildi"});
+            ""});
             this.cmbStatus.Location = new System.Drawing.Point(30, 340);
             this.cmbStatus.Name = "cmbStatus";
             this.cmbStatus.Size = new System.Drawing.Size(370, 28);
@@ -235,7 +235,7 @@ namespace SmartAccount.UI.Views
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(120, 40);
             this.btnCancel.TabIndex = 18;
-            this.btnCancel.Text = "İptal";
+            this.btnCancel.Text = "";
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
@@ -301,3 +301,4 @@ namespace SmartAccount.UI.Views
         private System.Windows.Forms.Button btnCancel;
     }
 }
+

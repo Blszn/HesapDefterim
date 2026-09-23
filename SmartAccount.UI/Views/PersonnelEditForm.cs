@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Windows.Forms;
 using SmartAccount.Business.Services;
 using SmartAccount.Core.Data;
@@ -22,7 +22,7 @@ namespace SmartAccount.UI.Views
         {
             if (_employeeId.HasValue)
             {
-                this.Text = "Personel Düzenle";
+                this.Text = "";
                 LoadEmployeeData(_employeeId.Value);
             }
             else
@@ -51,7 +51,7 @@ namespace SmartAccount.UI.Views
         {
             if (string.IsNullOrWhiteSpace(txtName.Text) || string.IsNullOrWhiteSpace(txtSurname.Text))
             {
-                MessageBox.Show("Ad ve Soyad alanları zorunludur.", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -103,3 +103,4 @@ namespace SmartAccount.UI.Views
         }
     }
 }
+

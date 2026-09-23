@@ -1,4 +1,4 @@
-namespace SmartAccount.UI.Views
+﻿namespace SmartAccount.UI.Views
 {
     partial class DebtAddEditForm
     {
@@ -47,7 +47,7 @@ namespace SmartAccount.UI.Views
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(100, 25);
             this.lblTitle.TabIndex = 0;
-            this.lblTitle.Text = "Borç Formu";
+            this.lblTitle.Text = "";
             // 
             // label1
             // 
@@ -93,7 +93,7 @@ namespace SmartAccount.UI.Views
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(59, 17);
             this.label5.TabIndex = 9;
-            this.label5.Text = "Açıklama";
+            this.label5.Text = "";
             // 
             // txtDescription
             // 
@@ -130,7 +130,7 @@ namespace SmartAccount.UI.Views
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(120, 40);
             this.btnCancel.TabIndex = 6;
-            this.btnCancel.Text = "İptal";
+            this.btnCancel.Text = "";
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
@@ -156,7 +156,7 @@ namespace SmartAccount.UI.Views
             this.MinimizeBox = false;
             this.Name = "DebtAddEditForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Borç Formu";
+            this.Text = "";
             this.panelTop.ResumeLayout(false);
             this.panelTop.PerformLayout();
             this.ResumeLayout(false);

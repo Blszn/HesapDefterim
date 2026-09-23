@@ -1,4 +1,4 @@
-namespace SmartAccount.UI.Views
+﻿namespace SmartAccount.UI.Views
 {
     partial class WorkAddEditForm
     {
@@ -53,7 +53,7 @@ namespace SmartAccount.UI.Views
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(75, 25);
             this.lblTitle.TabIndex = 0;
-            this.lblTitle.Text = "İş Ekle";
+            this.lblTitle.Text = "";
             // 
             // label1
             // 
@@ -62,7 +62,7 @@ namespace SmartAccount.UI.Views
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(37, 15);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Başlık";
+            this.label1.Text = "";
             // 
             // txtTitle
             // 
@@ -89,7 +89,7 @@ namespace SmartAccount.UI.Views
             this.cmbStatus.Items.AddRange(new object[] {
             "Bekliyor",
             "Devam Ediyor",
-            "Tamamlandı"});
+            ""});
             this.cmbStatus.Location = new System.Drawing.Point(30, 160);
             this.cmbStatus.Name = "cmbStatus";
             this.cmbStatus.Size = new System.Drawing.Size(370, 28);
@@ -102,7 +102,7 @@ namespace SmartAccount.UI.Views
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(88, 15);
             this.label3.TabIndex = 5;
-            this.label3.Text = "Başlama Tarihi";
+            this.label3.Text = "";
             // 
             // dtpStartDate
             // 
@@ -119,7 +119,7 @@ namespace SmartAccount.UI.Views
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(61, 15);
             this.label4.TabIndex = 7;
-            this.label4.Text = "Bitiş Tarihi";
+            this.label4.Text = "";
             // 
             // dtpEndDate
             // 
@@ -136,7 +136,7 @@ namespace SmartAccount.UI.Views
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(126, 15);
             this.label5.TabIndex = 9;
-            this.label5.Text = "İlgili Müşteri / Firma";
+            this.label5.Text = "";
             // 
             // cmbCustomer
             // 
@@ -155,7 +155,7 @@ namespace SmartAccount.UI.Views
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(56, 15);
             this.label6.TabIndex = 11;
-            this.label6.Text = "Açıklama";
+            this.label6.Text = "";
             // 
             // txtDescription
             // 
@@ -192,7 +192,7 @@ namespace SmartAccount.UI.Views
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(120, 40);
             this.btnCancel.TabIndex = 14;
-            this.btnCancel.Text = "İptal";
+            this.btnCancel.Text = "";
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
@@ -224,7 +224,7 @@ namespace SmartAccount.UI.Views
             this.MinimizeBox = false;
             this.Name = "WorkAddEditForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Görev / İş";
+            this.Text = "";
             this.panelTop.ResumeLayout(false);
             this.panelTop.PerformLayout();
             this.ResumeLayout(false);
@@ -250,3 +250,4 @@ namespace SmartAccount.UI.Views
         private System.Windows.Forms.Button btnCancel;
     }
 }
+

@@ -27,13 +27,13 @@ namespace SmartAccount.UI.Views
 
             if (_isEditMode)
             {
-                lblTitle.Text = "İş Düzenle";
-                btnSave.Text = "Güncelle";
+                lblTitle.Text = "";
+                btnSave.Text = "";
                 LoadWorkData();
             }
             else
             {
-                lblTitle.Text = "Yeni İş Ekle";
+                lblTitle.Text = "";
                 cmbStatus.SelectedIndex = 0; // Bekliyor
             }
         }
@@ -41,7 +41,7 @@ namespace SmartAccount.UI.Views
         private void LoadCustomers()
         {
             var customers = _context.Customers.OrderBy(c => c.FullName).ToList();
-            customers.Insert(0, new Customer { Id = 0, FullName = "Seçiniz (Opsiyonel)" });
+            customers.Insert(0, new Customer { Id = 0, FullName = "" });
             cmbCustomer.DataSource = customers;
             cmbCustomer.DisplayMember = "FullName";
             cmbCustomer.ValueMember = "Id";
@@ -67,8 +67,7 @@ namespace SmartAccount.UI.Views
         {
             if (string.IsNullOrWhiteSpace(txtTitle.Text))
             {
-                MessageBox.Show("İş başlığı zorunludur.");
-                return;
+                txtTitle.Text = " ";
             }
 
             if (_isEditMode && _work != null)
@@ -129,3 +128,4 @@ namespace SmartAccount.UI.Views
         }
     }
 }
+

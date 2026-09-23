@@ -1,4 +1,4 @@
-using SmartAccount.Core.Data;
+﻿using SmartAccount.Core.Data;
 using SmartAccount.Core.Entities;
 using System.Collections.Generic;
 using System.Linq;
@@ -43,7 +43,7 @@ namespace SmartAccount.Business.Services
             {
                 _context.Accounts.Add(account);
                 _context.SaveChanges();
-                return (true, "Hesap başarıyla eklendi.");
+                return (true, "");
             }
             catch (Exception ex)
             {
@@ -57,7 +57,7 @@ namespace SmartAccount.Business.Services
             {
                 _context.Accounts.Update(account);
                 _context.SaveChanges();
-                return (true, "Hesap güncellendi.");
+                return (true, "");
             }
             catch (Exception ex)
             {
@@ -76,7 +76,7 @@ namespace SmartAccount.Business.Services
                     _context.SaveChanges();
                     return (true, "Hesap silindi.");
                 }
-                return (false, "Hesap bulunamadı.");
+                return (false, "");
             }
             catch (Exception ex)
             {
@@ -85,3 +85,4 @@ namespace SmartAccount.Business.Services
         }
     }
 }
+

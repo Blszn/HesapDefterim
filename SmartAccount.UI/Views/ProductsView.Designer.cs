@@ -1,4 +1,4 @@
-namespace SmartAccount.UI.Views
+﻿namespace SmartAccount.UI.Views
 {
     partial class ProductsView
     {
@@ -43,7 +43,7 @@ namespace SmartAccount.UI.Views
             this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold);
             this.lblTitle.Location = new System.Drawing.Point(10, 10);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Text = "Stok / Ürünler Yönetimi";
+            this.lblTitle.Text = "";
             
             // btnRefresh
             this.btnRefresh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -71,3 +71,4 @@ namespace SmartAccount.UI.Views
         private System.Windows.Forms.Label lblTitle;
     }
 }
+
