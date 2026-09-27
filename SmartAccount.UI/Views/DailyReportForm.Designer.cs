@@ -56,7 +56,7 @@ namespace SmartAccount.UI.Views
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(199, 30);
             this.lblTitle.TabIndex = 5;
-            this.lblTitle.Text = "";
+            this.lblTitle.Text = "Gün Sonu Raporu";
             // 
             // dtpDate
             // 
@@ -180,7 +180,7 @@ namespace SmartAccount.UI.Views
             this.Controls.Add(this.panelSummary);
             this.Controls.Add(this.panelTop);
             this.Name = "DailyReportForm";
-            this.Text = "";
+            this.Text = "Detaylar";
             this.Load += new System.EventHandler(this.DailyReportForm_Load);
             this.panelTop.ResumeLayout(false);
             this.panelTop.PerformLayout();
@@ -204,4 +204,7 @@ namespace SmartAccount.UI.Views
         private System.Windows.Forms.DataGridView dgvTransactions;
     }
 }
+
+
+
 

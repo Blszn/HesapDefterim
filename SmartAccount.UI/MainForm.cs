@@ -13,7 +13,7 @@ namespace SmartAccount.UI
         {
             InitializeComponent();
             _currentUser = user;
-            lblUserInfo.Text = "";
+            lblUserInfo.Text = $"Hoş geldin, {_currentUser.Username}";
             
             try
             {
@@ -61,7 +61,7 @@ namespace SmartAccount.UI
 
         private void BtnProducts_Click(object? sender, EventArgs e)
         {
-            lblPageTitle.Text = "";
+            lblPageTitle.Text = "Sayfa";
             pnlContent.Controls.Clear();
             var view = new Views.ProductsView();
             view.Dock = DockStyle.Fill;
@@ -88,7 +88,7 @@ namespace SmartAccount.UI
 
         private void BtnWorks_Click(object? sender, EventArgs e)
         {
-            lblPageTitle.Text = "";
+            lblPageTitle.Text = "Sayfa";
             pnlContent.Controls.Clear();
             var worksView = new Views.WorksView();
             worksView.Dock = DockStyle.Fill;
@@ -115,7 +115,7 @@ namespace SmartAccount.UI
 
         private void BtnCustomers_Click(object? sender, EventArgs e)
         {
-            lblPageTitle.Text = "";
+            lblPageTitle.Text = "Sayfa";
             pnlContent.Controls.Clear();
             var customersView = new Views.CustomersView();
             customersView.Dock = DockStyle.Fill;
@@ -124,7 +124,7 @@ namespace SmartAccount.UI
 
         private void btnPersonnel_Click(object? sender, EventArgs e)
         {
-            lblPageTitle.Text = "";
+            lblPageTitle.Text = "Sayfa";
             pnlContent.Controls.Clear();
             var form = new Views.PersonnelListForm();
             form.TopLevel = false;
@@ -136,7 +136,7 @@ namespace SmartAccount.UI
 
         private void btnDailyReport_Click(object? sender, EventArgs e)
         {
-            lblPageTitle.Text = "";
+            lblPageTitle.Text = "Sayfa";
             pnlContent.Controls.Clear();
             var form = new Views.DailyReportForm();
             form.TopLevel = false;
@@ -144,6 +144,15 @@ namespace SmartAccount.UI
             form.Dock = DockStyle.Fill;
             pnlContent.Controls.Add(form);
             form.Show();
+        }
+
+                private void btnNotepad_Click(object sender, EventArgs e)
+        {
+            lblPageTitle.Text = "Not Defteri";
+            pnlContent.Controls.Clear();
+            var notepadView = new Views.NotepadView();
+            notepadView.Dock = DockStyle.Fill;
+            pnlContent.Controls.Add(notepadView);
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -170,7 +179,7 @@ namespace SmartAccount.UI
         {
             if (string.IsNullOrWhiteSpace(keyword)) return;
 
-            lblPageTitle.Text = "";
+            lblPageTitle.Text = "Sayfa";
             pnlContent.Controls.Clear();
             var customersView = new Views.CustomersView();
             customersView.Dock = DockStyle.Fill;
@@ -179,4 +188,8 @@ namespace SmartAccount.UI
         }
     }
 }
+
+
+
+
 

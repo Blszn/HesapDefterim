@@ -47,7 +47,7 @@
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(100, 25);
             this.lblTitle.TabIndex = 0;
-            this.lblTitle.Text = "";
+            this.lblTitle.Text = "Başlık";
             // 
             // label1
             // 
@@ -93,7 +93,7 @@
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(59, 17);
             this.label5.TabIndex = 9;
-            this.label5.Text = "";
+            this.label5.Text = "Açıklama";
             // 
             // txtDescription
             // 
@@ -130,7 +130,7 @@
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(120, 40);
             this.btnCancel.TabIndex = 6;
-            this.btnCancel.Text = "";
+            this.btnCancel.Text = "İptal";
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
@@ -156,7 +156,7 @@
             this.MinimizeBox = false;
             this.Name = "DebtAddEditForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "";
+            this.Text = "Detaylar";
             this.panelTop.ResumeLayout(false);
             this.panelTop.PerformLayout();
             this.ResumeLayout(false);
@@ -176,3 +176,7 @@
         private System.Windows.Forms.Button btnCancel;
     }
 }
+
+
+
+

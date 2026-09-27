@@ -13,6 +13,20 @@ namespace SmartAccount.UI.Views
         private DocumentService _documentService;
         private SmartAccountDbContext _context;
 
+        private void btnExportLogs_Click(object sender, EventArgs e)
+        {
+            using (SaveFileDialog sfd = new SaveFileDialog())
+            {
+                sfd.Filter = "Metin Dosyası (*.txt)|*.txt";
+                sfd.FileName = "SistemLoglari_" + DateTime.Now.ToString("yyyyMMdd") + ".txt";
+                if (sfd.ShowDialog() == DialogResult.OK)
+                {
+                    SmartAccount.Core.Data.SystemLogger.ExportLogs(sfd.FileName);
+                    MessageBox.Show("Loglar başarıyla kaydedildi.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+        }
+
         public ReportsView()
         {
             InitializeComponent();
@@ -35,7 +49,7 @@ namespace SmartAccount.UI.Views
                     {
                         var invoices = _documentService.GetInvoices();
                         _exportService.ExportInvoicesToPdf(invoices, sfd.FileName);
-                        MessageBox.Show("", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("İşlem başarıyla tamamlandı.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     catch (Exception ex)
                     {
@@ -55,7 +69,7 @@ namespace SmartAccount.UI.Views
                     {
                         var invoices = _documentService.GetInvoices();
                         _exportService.ExportInvoicesToExcel(invoices, sfd.FileName);
-                        MessageBox.Show("", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("İşlem başarıyla tamamlandı.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     catch (Exception ex)
                     {
@@ -66,4 +80,7 @@ namespace SmartAccount.UI.Views
         }
     }
 }
+
+
+
 

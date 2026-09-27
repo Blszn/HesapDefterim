@@ -56,7 +56,7 @@ namespace SmartAccount.UI.Views
         {
             if (dgvPersonnel.SelectedRows.Count == 0)
             {
-                MessageBox.Show("", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Lütfen gerekli alanları doldurun veya listeden bir kayıt seçin.", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -72,14 +72,14 @@ namespace SmartAccount.UI.Views
         {
             if (dgvPersonnel.SelectedRows.Count == 0)
             {
-                MessageBox.Show("", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Lütfen gerekli alanları doldurun veya listeden bir kayıt seçin.", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             int id = (int)dgvPersonnel.SelectedRows[0].Cells["Id"].Value;
             var empName = dgvPersonnel.SelectedRows[0].Cells["AdSoyad"].Value.ToString();
 
-            if (MessageBox.Show("", "Onay", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show("Bu işlemi gerçekleştirmek istediğinize emin misiniz?", "Onay", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 var result = _employeeService.DeleteEmployee(id);
                 if (result.Success)
@@ -94,4 +94,6 @@ namespace SmartAccount.UI.Views
         }
     }
 }
+
+
 

@@ -75,7 +75,7 @@
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(183, 30);
             this.lblTitle.TabIndex = 0;
-            this.lblTitle.Text = "";
+            this.lblTitle.Text = "Ana Panel (Dashboard)";
             // 
             // btnRefresh
             // 
@@ -198,7 +198,7 @@
             this.lblCustomersTitle.ForeColor = System.Drawing.Color.Gray;
             this.lblCustomersTitle.Location = new System.Drawing.Point(20, 20);
             this.lblCustomersTitle.Name = "lblCustomersTitle";
-            this.lblCustomersTitle.Text = "";
+            this.lblCustomersTitle.Text = "Toplam Müşteri";
             // 
             // lblActiveCustomers
             // 
@@ -266,7 +266,7 @@
             this.lblPendingWorksTitle.ForeColor = System.Drawing.Color.Gray;
             this.lblPendingWorksTitle.Location = new System.Drawing.Point(20, 20);
             this.lblPendingWorksTitle.Name = "lblPendingWorksTitle";
-            this.lblPendingWorksTitle.Text = "";
+            this.lblPendingWorksTitle.Text = "Aktif İşler";
             // 
             // lblPendingWorks
             // 
@@ -350,4 +350,7 @@
         private ScottPlot.WinForms.FormsPlot formsPlot1;
     }
 }
+
+
+
 

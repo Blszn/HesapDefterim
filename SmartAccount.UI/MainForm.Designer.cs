@@ -16,6 +16,7 @@
         private void InitializeComponent()
         {
             this.pnlSidebar = new System.Windows.Forms.Panel();
+            this.btnNotepad = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
             this.btnSettings = new System.Windows.Forms.Button();
             this.btnAccounts = new System.Windows.Forms.Button();
@@ -46,6 +47,7 @@
             // pnlSidebar
             // 
             this.pnlSidebar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
+                        this.pnlSidebar.Controls.Add(this.btnNotepad);
             this.pnlSidebar.Controls.Add(this.btnExit);
             this.pnlSidebar.Controls.Add(this.btnSettings);
             this.pnlSidebar.Controls.Add(this.btnAccounts);
@@ -65,6 +67,19 @@
             this.pnlSidebar.Size = new System.Drawing.Size(220, 720);
             this.pnlSidebar.TabIndex = 0;
             // 
+                        // btnNotepad
+            
+            this.btnNotepad.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnNotepad.FlatAppearance.BorderSize = 0;
+            this.btnNotepad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNotepad.ForeColor = System.Drawing.Color.White;
+            this.btnNotepad.Location = new System.Drawing.Point(0, 480);
+            this.btnNotepad.Name = "btnNotepad";
+            this.btnNotepad.Size = new System.Drawing.Size(200, 40);
+            this.btnNotepad.TabIndex = 11;
+            this.btnNotepad.Text = "Not Defteri";
+            this.btnNotepad.UseVisualStyleBackColor = true;
+            this.btnNotepad.Click += new System.EventHandler(this.btnNotepad_Click);
             // btnExit
             // 
             this.btnExit.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -76,7 +91,7 @@
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(220, 50);
             this.btnExit.TabIndex = 6;
-            this.btnExit.Text = "";
+            this.btnExit.Text = "Çıkış Yap";
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             this.btnSettings.Dock = System.Windows.Forms.DockStyle.Top;
@@ -118,7 +133,7 @@
             this.btnProducts.Name = "btnProducts";
             this.btnProducts.Size = new System.Drawing.Size(220, 50);
             this.btnProducts.TabIndex = 8;
-            this.btnProducts.Text = "";
+            this.btnProducts.Text = "Stok / Ürünler";
             this.btnProducts.UseVisualStyleBackColor = true;
 
             // 
@@ -147,7 +162,7 @@
             this.btnPersonnel.Name = "btnPersonnel";
             this.btnPersonnel.Size = new System.Drawing.Size(220, 50);
             this.btnPersonnel.TabIndex = 6;
-            this.btnPersonnel.Text = "";
+            this.btnPersonnel.Text = "Personel Yönetimi";
             this.btnPersonnel.UseVisualStyleBackColor = true;
             this.btnPersonnel.Click += new System.EventHandler(this.btnPersonnel_Click);
             // 
@@ -162,7 +177,7 @@
             this.btnDailyReport.Name = "btnDailyReport";
             this.btnDailyReport.Size = new System.Drawing.Size(220, 50);
             this.btnDailyReport.TabIndex = 7;
-            this.btnDailyReport.Text = "";
+            this.btnDailyReport.Text = "Gün Sonu Raporu";
             this.btnDailyReport.UseVisualStyleBackColor = true;
             this.btnDailyReport.Click += new System.EventHandler(this.btnDailyReport_Click);
             // 
@@ -191,7 +206,7 @@
             this.btnWorks.Name = "btnWorks";
             this.btnWorks.Size = new System.Drawing.Size(220, 50);
             this.btnWorks.TabIndex = 7;
-            this.btnWorks.Text = "";
+            this.btnWorks.Text = "İş Takibi";
             this.btnWorks.UseVisualStyleBackColor = true;
             // 
             // btnTransactions
@@ -219,7 +234,7 @@
             this.btnCustomers.Name = "btnCustomers";
             this.btnCustomers.Size = new System.Drawing.Size(220, 50);
             this.btnCustomers.TabIndex = 2;
-            this.btnCustomers.Text = "";
+            this.btnCustomers.Text = "Müşteriler";
             this.btnCustomers.UseVisualStyleBackColor = true;
             // 
             // btnDashboard
@@ -351,7 +366,7 @@
             this.MinimumSize = new System.Drawing.Size(1024, 600);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "";
+            this.Text = "HesapDefterim - İşletme Yönetim Sistemi (ERP)";
             this.pnlSidebar.ResumeLayout(false);
             this.pnlLogo.ResumeLayout(false);
             this.pnlLogo.PerformLayout();
@@ -370,6 +385,7 @@
         private System.Windows.Forms.Button btnDashboard;
         private System.Windows.Forms.Button btnPersonnel;
         private System.Windows.Forms.Button btnDailyReport;
+                private System.Windows.Forms.Button btnNotepad;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Button btnSettings;
         private System.Windows.Forms.Button btnAccounts;
@@ -386,4 +402,6 @@
         private System.Windows.Forms.PictureBox pictureBoxLogo;
     }
 }
+
+
 

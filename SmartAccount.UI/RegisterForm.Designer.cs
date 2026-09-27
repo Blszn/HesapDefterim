@@ -1,6 +1,6 @@
 ﻿namespace SmartAccount.UI
 {
-    partial class LoginForm
+    partial class RegisterForm
     {
         private System.ComponentModel.IContainer components = null;
 
@@ -19,7 +19,6 @@
             this.txtUsername = new System.Windows.Forms.TextBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.btnRegister = new System.Windows.Forms.Button();
-            this.btnLogin = new System.Windows.Forms.Button();
             this.lblTitle = new System.Windows.Forms.Label();
             this.lblError = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
@@ -52,38 +51,22 @@
             this.txtPassword.Size = new System.Drawing.Size(320, 29);
             this.txtPassword.TabIndex = 1;
             // 
-            // btnLogin
-            // 
-            this.btnLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(174)))), ((int)(((byte)(96)))));
-            this.btnLogin.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnLogin.FlatAppearance.BorderSize = 0;
-            this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogin.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnLogin.ForeColor = System.Drawing.Color.White;
-            this.btnLogin.Location = new System.Drawing.Point(40, 310);
-            this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(320, 45);
-            this.btnLogin.TabIndex = 2;
-            this.btnLogin.Text = "Giriş Yap";
-            this.btnLogin.UseVisualStyleBackColor = false;
-            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
-            // 
-                        // 
             // btnRegister
             // 
-            this.btnRegister.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
+            this.btnRegister.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(174)))), ((int)(((byte)(96)))));
             this.btnRegister.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnRegister.FlatAppearance.BorderSize = 0;
             this.btnRegister.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRegister.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnRegister.ForeColor = System.Drawing.Color.White;
-            this.btnRegister.Location = new System.Drawing.Point(40, 365);
+            this.btnRegister.Location = new System.Drawing.Point(40, 310);
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.Size = new System.Drawing.Size(320, 45);
-            this.btnRegister.TabIndex = 3;
+            this.btnRegister.TabIndex = 2;
             this.btnRegister.Text = "Kayıt Ol";
             this.btnRegister.UseVisualStyleBackColor = false;
             this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
+            // 
             // lblTitle
             // 
             this.lblTitle.AutoSize = true;
@@ -93,7 +76,7 @@
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(206, 37);
             this.lblTitle.TabIndex = 3;
-            this.lblTitle.Text = "HesapDefterim";
+            this.lblTitle.Text = "Kayıt Ol";
             // 
             // lblError
             // 
@@ -129,9 +112,8 @@
             this.panel1.Controls.Add(this.btnClose);
             this.panel1.Controls.Add(this.lblError);
             this.panel1.Controls.Add(this.txtUsername);
-            this.panel1.Controls.Add(this.btnLogin);
-            this.panel1.Controls.Add(this.txtPassword);
             this.panel1.Controls.Add(this.btnRegister);
+            this.panel1.Controls.Add(this.txtPassword);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
@@ -160,27 +142,27 @@
             this.label2.TabIndex = 7;
             this.label2.Text = "Şifre";
             // 
-            // LoginForm
+            // RegisterForm
             // 
-            this.AcceptButton = this.btnLogin;
+            this.AcceptButton = this.btnRegister;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
             this.ClientSize = new System.Drawing.Size(400, 450);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "LoginForm";
+            this.Name = "RegisterForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "";
+            this.Text = "Kayıt Ol";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
+
         }
-        private System.Windows.Forms.Button btnRegister;
 
         private System.Windows.Forms.TextBox txtUsername;
         private System.Windows.Forms.TextBox txtPassword;
-        private System.Windows.Forms.Button btnLogin;
+        private System.Windows.Forms.Button btnRegister;
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Label lblError;
         private System.Windows.Forms.Button btnClose;
@@ -189,8 +171,3 @@
         private System.Windows.Forms.Label label1;
     }
 }
-
-
-
-
-

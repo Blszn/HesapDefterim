@@ -53,7 +53,7 @@
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(100, 25);
             this.lblTitle.TabIndex = 0;
-            this.lblTitle.Text = "";
+            this.lblTitle.Text = "Başlık";
             // 
             // label1
             // 
@@ -119,7 +119,7 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(126, 17);
             this.label4.TabIndex = 7;
-            this.label4.Text = "";
+            this.label4.Text = "Müşteri";
             // 
             // cmbCustomer
             // 
@@ -140,7 +140,7 @@
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(100, 17);
             this.label6.TabIndex = 10;
-            this.label6.Text = "";
+            this.label6.Text = "Ödeme Yöntemi";
             // 
             // cmbPaymentMethod
             // 
@@ -168,7 +168,7 @@
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(59, 17);
             this.label5.TabIndex = 11;
-            this.label5.Text = "";
+            this.label5.Text = "Açıklama";
             // 
             // txtDescription
             // 
@@ -205,7 +205,7 @@
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(120, 40);
             this.btnCancel.TabIndex = 7;
-            this.btnCancel.Text = "";
+            this.btnCancel.Text = "İptal";
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
@@ -237,7 +237,7 @@
             this.MinimizeBox = false;
             this.Name = "TransactionAddEditForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "";
+            this.Text = "Detaylar";
             this.panelTop.ResumeLayout(false);
             this.panelTop.PerformLayout();
             this.ResumeLayout(false);
@@ -263,4 +263,8 @@
         private System.Windows.Forms.Button btnCancel;
     }
 }
+
+
+
+
 

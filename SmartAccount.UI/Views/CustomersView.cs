@@ -77,7 +77,7 @@ namespace SmartAccount.UI.Views
             }
             else
             {
-                MessageBox.Show("", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Lütfen gerekli alanları doldurun veya listeden bir kayıt seçin.", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -86,7 +86,7 @@ namespace SmartAccount.UI.Views
             if (dgvCustomers.SelectedRows.Count > 0)
             {
                 var customer = (Customer)dgvCustomers.SelectedRows[0].DataBoundItem;
-                var result = MessageBox.Show("", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                var result = MessageBox.Show("Bu işlemi gerçekleştirmek istediğinize emin misiniz?", "Onay", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 
                 if (result == DialogResult.Yes)
                 {
@@ -104,7 +104,7 @@ namespace SmartAccount.UI.Views
             }
             else
             {
-                MessageBox.Show("", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Lütfen gerekli alanları doldurun veya listeden bir kayıt seçin.", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -120,7 +120,7 @@ namespace SmartAccount.UI.Views
             }
             else
             {
-                MessageBox.Show("", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Lütfen gerekli alanları doldurun veya listeden bir kayıt seçin.", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -141,4 +141,6 @@ namespace SmartAccount.UI.Views
         }
     }
 }
+
+
 

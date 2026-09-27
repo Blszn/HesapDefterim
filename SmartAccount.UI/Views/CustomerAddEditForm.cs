@@ -21,12 +21,12 @@ namespace SmartAccount.UI.Views
 
             if (_isEditMode)
             {
-                lblTitle.Text = "";
+                lblTitle.Text = "Cari Düzenle";
                 LoadCustomerData();
             }
             else
             {
-                lblTitle.Text = "";
+                lblTitle.Text = "Yeni Cari Ekle";
             }
 
             txtMobilePhone.KeyPress += Numeric_KeyPress;
@@ -61,7 +61,7 @@ namespace SmartAccount.UI.Views
         {
             if (string.IsNullOrWhiteSpace(txtFullName.Text))
             {
-                MessageBox.Show("", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Lütfen gerekli alanları doldurun veya listeden bir kayıt seçin.", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -121,4 +121,9 @@ namespace SmartAccount.UI.Views
         }
     }
 }
+
+
+
+
+
 

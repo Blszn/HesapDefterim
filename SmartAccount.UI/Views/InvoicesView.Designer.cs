@@ -159,7 +159,7 @@
             this.btnDownloadEInvoice.Name = "btnDownloadEInvoice";
             this.btnDownloadEInvoice.Size = new System.Drawing.Size(150, 35);
             this.btnDownloadEInvoice.TabIndex = 8;
-            this.btnDownloadEInvoice.Text = "";
+            this.btnDownloadEInvoice.Text = "Fatura İndir";
             this.btnDownloadEInvoice.UseVisualStyleBackColor = false;
             this.btnDownloadEInvoice.Click += new System.EventHandler(this.btnDownloadEInvoice_Click);
             // 
@@ -289,4 +289,7 @@
         private System.Windows.Forms.DataGridView dgvOffers;
     }
 }
+
+
+
 

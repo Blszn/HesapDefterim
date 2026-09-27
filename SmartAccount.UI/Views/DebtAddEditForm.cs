@@ -30,7 +30,7 @@ namespace SmartAccount.UI.Views
             }
             else
             {
-                lblTitle.Text = "";
+                lblTitle.Text = "İşlem Detayları";
                 panelTop.BackColor = Color.FromArgb(231, 76, 60);
             }
 
@@ -55,7 +55,7 @@ namespace SmartAccount.UI.Views
         {
             if (!decimal.TryParse(txtAmount.Text, out decimal amount) || amount <= 0)
             {
-                MessageBox.Show("", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Lütfen gerekli alanları doldurun veya listeden bir kayıt seçin.", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -88,4 +88,7 @@ namespace SmartAccount.UI.Views
         }
     }
 }
+
+
+
 

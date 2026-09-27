@@ -92,7 +92,7 @@ namespace SmartAccount.UI.Views
             if (dgvWorks.SelectedRows.Count > 0)
             {
                 int id = (int)dgvWorks.SelectedRows[0].Cells["Id"].Value;
-                if (MessageBox.Show("", "Onay", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                if (MessageBox.Show("Bu işlemi gerçekleştirmek istediğinize emin misiniz?", "Onay", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     var res = _workService.DeleteWork(id);
                     if (res.Success) LoadWorks();
@@ -106,4 +106,6 @@ namespace SmartAccount.UI.Views
         }
     }
 }
+
+
 

@@ -57,7 +57,7 @@
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(166, 25);
             this.lblTitle.TabIndex = 0;
-            this.lblTitle.Text = "";
+            this.lblTitle.Text = "Başlık";
             // 
             // label1
             // 
@@ -67,7 +67,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(130, 17);
             this.label1.TabIndex = 1;
-            this.label1.Text = "";
+            this.label1.Text = "Cari Adı / Unvanı";
             // 
             // txtFullName
             // 
@@ -165,7 +165,7 @@
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(95, 17);
             this.label6.TabIndex = 11;
-            this.label6.Text = "";
+            this.label6.Text = "Vergi No / T.C. Kimlik No";
             // 
             // txtAddress
             // 
@@ -231,7 +231,7 @@
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(120, 40);
             this.btnCancel.TabIndex = 9;
-            this.btnCancel.Text = "";
+            this.btnCancel.Text = "İptal";
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
@@ -267,7 +267,7 @@
             this.MinimizeBox = false;
             this.Name = "CustomerAddEditForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "";
+            this.Text = "Detaylar";
             this.panelTop.ResumeLayout(false);
             this.panelTop.PerformLayout();
             this.ResumeLayout(false);
@@ -297,4 +297,8 @@
         private System.Windows.Forms.Button btnCancel;
     }
 }
+
+
+
+
 

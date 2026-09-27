@@ -75,7 +75,7 @@
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(90, 35);
             this.btnEdit.TabIndex = 4;
-            this.btnEdit.Text = "";
+            this.btnEdit.Text = "Düzenle";
             this.btnEdit.UseVisualStyleBackColor = false;
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
@@ -146,7 +146,7 @@
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(115, 30);
             this.lblTitle.TabIndex = 0;
-            this.lblTitle.Text = "";
+            this.lblTitle.Text = "Başlık";
             // 
             // dgvCustomers
             // 
@@ -214,4 +214,7 @@
         private System.Windows.Forms.DataGridView dgvCustomers;
     }
 }
+
+
+
 

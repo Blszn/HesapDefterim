@@ -61,7 +61,7 @@
             this.tabExtre.Controls.Add(this.dgvExtre);
             this.tabExtre.Controls.Add(this.panelExtreTop);
             this.tabExtre.Name = "tabExtre";
-            this.tabExtre.Text = "";
+            this.tabExtre.Text = "Cari Ekstre (İşlem Geçmişi)";
             this.tabExtre.UseVisualStyleBackColor = true;
 
             // dgvExtre
@@ -94,7 +94,7 @@
             this.btnBorclandir.Location = new System.Drawing.Point(110, 8);
             this.btnBorclandir.Name = "btnBorclandir";
             this.btnBorclandir.Size = new System.Drawing.Size(90, 25);
-            this.btnBorclandir.Text = "";
+            this.btnBorclandir.Text = "Borç Ekle";
             this.btnBorclandir.Click += new System.EventHandler(this.btnBorclandir_Click);
 
             // btnTahsilat
@@ -108,7 +108,7 @@
             this.btnTediye.Location = new System.Drawing.Point(310, 8);
             this.btnTediye.Name = "btnTediye";
             this.btnTediye.Size = new System.Drawing.Size(90, 25);
-            this.btnTediye.Text = "";
+            this.btnTediye.Text = "Ödeme";
             this.btnTediye.Click += new System.EventHandler(this.btnTediye_Click);
 
             // lblBakiye
@@ -153,14 +153,14 @@
             this.btnUpload.Location = new System.Drawing.Point(10, 8);
             this.btnUpload.Name = "btnUpload";
             this.btnUpload.Size = new System.Drawing.Size(100, 25);
-            this.btnUpload.Text = "";
+            this.btnUpload.Text = "Dosya Yükle";
             this.btnUpload.Click += new System.EventHandler(this.btnUpload_Click);
 
             // btnDownload
             this.btnDownload.Location = new System.Drawing.Point(120, 8);
             this.btnDownload.Name = "btnDownload";
             this.btnDownload.Size = new System.Drawing.Size(100, 25);
-            this.btnDownload.Text = "";
+            this.btnDownload.Text = "Dosyayı İndir";
             this.btnDownload.Click += new System.EventHandler(this.btnDownload_Click);
 
             // btnDeleteAttachment
@@ -174,9 +174,17 @@
             this.ClientSize = new System.Drawing.Size(784, 461);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.lblCustomerName);
+            // btnEditCustomer
+            this.btnEditCustomer = new System.Windows.Forms.Button();
+            this.btnEditCustomer.Location = new System.Drawing.Point(500, 10);
+            this.btnEditCustomer.Name = "btnEditCustomer";
+            this.btnEditCustomer.Size = new System.Drawing.Size(90, 30);
+            this.btnEditCustomer.Text = "Düzenle";
+            this.btnEditCustomer.Click += new System.EventHandler(this.btnEditCustomer_Click);
+            this.Controls.Add(this.btnEditCustomer);
             this.Name = "CustomerDetailsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "";
+            this.Text = "Cari Detayları";
             this.Load += new System.EventHandler(this.CustomerDetailsForm_Load);
 
             this.tabControl1.ResumeLayout(false);
@@ -207,7 +215,12 @@
         private System.Windows.Forms.Button btnDownload;
         private System.Windows.Forms.Button btnDeleteAttachment;
         private System.Windows.Forms.Label lblCustomerName;
+        private System.Windows.Forms.Button btnEditCustomer;
     }
 }
+
+
+
+
 
 

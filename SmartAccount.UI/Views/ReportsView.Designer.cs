@@ -19,6 +19,7 @@
             this.lblMessage = new System.Windows.Forms.Label();
             this.btnExportInvoicesPdf = new System.Windows.Forms.Button();
             this.btnExportInvoicesExcel = new System.Windows.Forms.Button();
+            this.btnExportLogs = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblTitle
@@ -54,7 +55,7 @@
             this.btnExportInvoicesPdf.Name = "btnExportInvoicesPdf";
             this.btnExportInvoicesPdf.Size = new System.Drawing.Size(200, 40);
             this.btnExportInvoicesPdf.TabIndex = 2;
-            this.btnExportInvoicesPdf.Text = "";
+            this.btnExportInvoicesPdf.Text = "PDF İndir";
             this.btnExportInvoicesPdf.UseVisualStyleBackColor = false;
             this.btnExportInvoicesPdf.Click += new System.EventHandler(this.btnExportInvoicesPdf_Click);
             // 
@@ -69,9 +70,24 @@
             this.btnExportInvoicesExcel.Name = "btnExportInvoicesExcel";
             this.btnExportInvoicesExcel.Size = new System.Drawing.Size(200, 40);
             this.btnExportInvoicesExcel.TabIndex = 3;
-            this.btnExportInvoicesExcel.Text = "";
+            this.btnExportInvoicesExcel.Text = "Excel İndir";
             this.btnExportInvoicesExcel.UseVisualStyleBackColor = false;
             this.btnExportInvoicesExcel.Click += new System.EventHandler(this.btnExportInvoicesExcel_Click);
+            // 
+            // btnExportLogs
+            // 
+            this.btnExportLogs.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
+            this.btnExportLogs.FlatAppearance.BorderSize = 0;
+            this.btnExportLogs.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExportLogs.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnExportLogs.ForeColor = System.Drawing.Color.White;
+            this.btnExportLogs.Location = new System.Drawing.Point(460, 120);
+            this.btnExportLogs.Name = "btnExportLogs";
+            this.btnExportLogs.Size = new System.Drawing.Size(200, 40);
+            this.btnExportLogs.TabIndex = 4;
+            this.btnExportLogs.Text = "Sistem Loglarını İndir";
+            this.btnExportLogs.UseVisualStyleBackColor = false;
+            this.btnExportLogs.Click += new System.EventHandler(this.btnExportLogs_Click);
             // 
             // ReportsView
             // 
@@ -79,6 +95,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
             this.Controls.Add(this.btnExportInvoicesExcel);
+            this.Controls.Add(this.btnExportLogs);
             this.Controls.Add(this.btnExportInvoicesPdf);
             this.Controls.Add(this.lblMessage);
             this.Controls.Add(this.lblTitle);
@@ -94,6 +111,11 @@
         private System.Windows.Forms.Label lblMessage;
         private System.Windows.Forms.Button btnExportInvoicesPdf;
         private System.Windows.Forms.Button btnExportInvoicesExcel;
+        private System.Windows.Forms.Button btnExportLogs;
     }
 }
+
+
+
+
 

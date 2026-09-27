@@ -6,38 +6,35 @@ using SmartAccount.Core.Data;
 
 namespace SmartAccount.UI
 {
-    public partial class LoginForm : Form
+    public partial class RegisterForm : Form
     {
         private UserService _userService;
         private SmartAccountDbContext _context;
 
-        public LoginForm()
+        public RegisterForm()
         {
             InitializeComponent();
             _context = new SmartAccountDbContext();
             _userService = new UserService(_context);
         }
 
-        private void btnLogin_Click(object sender, EventArgs e)
+        private void btnRegister_Click(object sender, EventArgs e)
         {
             string username = txtUsername.Text;
             string password = txtPassword.Text;
 
             if (string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(password))
             {
-                lblError.Text = "";
+                lblError.Text = "Kullanıcı adı ve şifre boş olamaz!";
                 lblError.Visible = true;
                 return;
             }
 
-            var result = _userService.Login(username, password);
+            var result = _userService.Register(username, password);
             if (result.Success)
             {
-                SmartAccount.Core.Data.SystemLogger.CurrentUsername = result.User!.Username;
-                SmartAccount.Core.Data.SystemLogger.Log("Sisteme giriş yaptı.");
-                MainForm mainForm = new MainForm(result.User!);
-                this.Hide();
-                mainForm.ShowDialog();
+                MessageBox.Show("Kayıt başarılı! Şimdi giriş yapabilirsiniz.", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.DialogResult = DialogResult.OK;
                 this.Close();
             }
             else
@@ -47,22 +44,10 @@ namespace SmartAccount.UI
             }
         }
 
-                private void btnRegister_Click(object sender, EventArgs e)
-        {
-            using (var registerForm = new RegisterForm())
-            {
-                this.Hide();
-                registerForm.ShowDialog();
-                this.Show();
-            }
-        }
-
         private void btnClose_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            this.DialogResult = DialogResult.Cancel;
+            this.Close();
         }
     }
 }
-
-
-

@@ -1,4 +1,4 @@
-using SmartAccount.Core.Data;
+﻿using SmartAccount.Core.Data;
 using SmartAccount.Core.Entities;
 using SmartAccount.Business.Helpers;
 using System.Linq;
@@ -13,6 +13,32 @@ namespace SmartAccount.Business.Services
         public UserService(SmartAccountDbContext context)
         {
             _context = context;
+        }
+
+                public (bool Success, string Message) Register(string username, string password)
+        {
+            if (_context.Users.Any(u => u.Username == username))
+            {
+                return (false, "Bu kullanıcı adı zaten alınmış.");
+            }
+
+            string salt = SecurityHelper.GenerateSalt();
+            string hash = SecurityHelper.HashPassword(password, salt);
+
+            var newUser = new User
+            {
+                Username = username,
+                PasswordHash = hash,
+                Salt = salt,
+                Role = "Partner",
+                SecurityQuestion = "",
+                SecurityAnswerHash = ""
+            };
+
+            _context.Users.Add(newUser);
+            _context.SaveChanges();
+
+            return (true, "Kayıt başarılı.");
         }
 
         public void EnsureAdminExists()
@@ -61,4 +87,5 @@ namespace SmartAccount.Business.Services
         }
     }
 }
+
 

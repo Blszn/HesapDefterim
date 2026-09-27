@@ -110,7 +110,7 @@ namespace SmartAccount.UI.Views
         {
             if (!decimal.TryParse(txtAmount.Text, out decimal amount))
             {
-                MessageBox.Show("", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Lütfen gerekli alanları doldurun veya listeden bir kayıt seçin.", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -179,5 +179,7 @@ namespace SmartAccount.UI.Views
         }
     }
 }
+
+
 
 

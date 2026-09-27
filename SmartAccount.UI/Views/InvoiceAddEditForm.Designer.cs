@@ -66,7 +66,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(95, 15);
             this.label1.TabIndex = 1;
-            this.label1.Text = "";
+            this.label1.Text = "Fatura No";
             // 
             // txtInvoiceNumber
             // 
@@ -83,7 +83,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(32, 15);
             this.label2.TabIndex = 3;
-            this.label2.Text = "";
+            this.label2.Text = "Fatura Türü";
             // 
             // cmbType
             // 
@@ -105,7 +105,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(47, 15);
             this.label3.TabIndex = 5;
-            this.label3.Text = "";
+            this.label3.Text = "Müşteri";
             // 
             // cmbCustomer
             // 
@@ -235,7 +235,7 @@
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(120, 40);
             this.btnCancel.TabIndex = 18;
-            this.btnCancel.Text = "";
+            this.btnCancel.Text = "İptal";
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
@@ -301,4 +301,8 @@
         private System.Windows.Forms.Button btnCancel;
     }
 }
+
+
+
+
 

@@ -121,7 +121,7 @@
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(100, 35);
             this.btnUpdate.TabIndex = 10;
-            this.btnUpdate.Text = "";
+            this.btnUpdate.Text = "Düzenle";
             this.btnUpdate.UseVisualStyleBackColor = false;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
@@ -305,4 +305,7 @@
         private System.Windows.Forms.DataGridView dgvTransactions;
     }
 }
+
+
+
 

@@ -1,4 +1,4 @@
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using SmartAccount.Core.Entities;
 using System;
 using System.Linq;
@@ -81,13 +81,16 @@ namespace SmartAccount.Core.Data
                 switch (entry.State)
                 {
                     case EntityState.Added:
+                        SmartAccount.Core.Data.SystemLogger.Log($"{entry.Entity.GetType().Name} kaydı eklendi.");
                         entry.Entity.CreatedAt = DateTime.Now;
                         entry.Entity.IsDeleted = false;
                         break;
                     case EntityState.Modified:
+                        SmartAccount.Core.Data.SystemLogger.Log($"{entry.Entity.GetType().Name} kaydı güncellendi.");
                         entry.Entity.UpdatedAt = DateTime.Now;
                         break;
                     case EntityState.Deleted:
+                        SmartAccount.Core.Data.SystemLogger.Log($"{entry.Entity.GetType().Name} kaydı silindi.");
                         entry.State = EntityState.Modified;
                         entry.Entity.IsDeleted = true;
                         entry.Entity.UpdatedAt = DateTime.Now;
@@ -97,3 +100,4 @@ namespace SmartAccount.Core.Data
         }
     }
 }
+

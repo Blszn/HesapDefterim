@@ -54,7 +54,7 @@
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(101, 30);
             this.lblTitle.TabIndex = 0;
-            this.lblTitle.Text = "";
+            this.lblTitle.Text = "Başlık";
             // 
             // cmbStatusFilter
             // 
@@ -98,7 +98,7 @@
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(90, 35);
             this.btnAdd.TabIndex = 7;
-            this.btnAdd.Text = "";
+            this.btnAdd.Text = "Yeni Ekle";
             this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
@@ -114,7 +114,7 @@
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(90, 35);
             this.btnEdit.TabIndex = 8;
-            this.btnEdit.Text = "";
+            this.btnEdit.Text = "Düzenle";
             this.btnEdit.UseVisualStyleBackColor = false;
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
@@ -198,4 +198,7 @@
         private System.Windows.Forms.DataGridView dgvWorks;
     }
 }
+
+
+
 

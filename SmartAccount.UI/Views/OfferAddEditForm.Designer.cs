@@ -62,7 +62,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(47, 15);
             this.label3.TabIndex = 5;
-            this.label3.Text = "";
+            this.label3.Text = "Müşteri";
             // 
             // cmbCustomer
             // 
@@ -98,7 +98,7 @@
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(91, 15);
             this.label5.TabIndex = 9;
-            this.label5.Text = "";
+            this.label5.Text = "Geçerlilik Tarihi";
             // 
             // dtpValidUntil
             // 
@@ -192,7 +192,7 @@
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(120, 40);
             this.btnCancel.TabIndex = 18;
-            this.btnCancel.Text = "";
+            this.btnCancel.Text = "İptal";
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
@@ -250,4 +250,8 @@
         private System.Windows.Forms.Button btnCancel;
     }
 }
+
+
+
+
 

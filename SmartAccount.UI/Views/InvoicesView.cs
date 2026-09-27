@@ -62,7 +62,7 @@ namespace SmartAccount.UI.Views
             if (dgvInvoices.SelectedRows.Count > 0)
             {
                 int id = (int)dgvInvoices.SelectedRows[0].Cells["Id"].Value;
-                if (MessageBox.Show("", "Onay", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                if (MessageBox.Show("Bu işlemi gerçekleştirmek istediğinize emin misiniz?", "Onay", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     var res = _documentService.DeleteInvoice(id);
                     if (res.Success) LoadInvoices();
@@ -89,7 +89,7 @@ namespace SmartAccount.UI.Views
                             try
                             {
                                 _eInvoiceService.GenerateUblXml(invoice, sfd.FileName);
-                                MessageBox.Show("", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                MessageBox.Show("İşlem başarıyla tamamlandı.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             }
                             catch (Exception ex)
                             {
@@ -101,7 +101,7 @@ namespace SmartAccount.UI.Views
             }
             else
             {
-                MessageBox.Show("", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Lütfen gerekli alanları doldurun veya listeden bir kayıt seçin.", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
         #endregion
@@ -139,7 +139,7 @@ namespace SmartAccount.UI.Views
             if (dgvOffers.SelectedRows.Count > 0)
             {
                 int id = (int)dgvOffers.SelectedRows[0].Cells["Id"].Value;
-                if (MessageBox.Show("", "Onay", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                if (MessageBox.Show("Bu işlemi gerçekleştirmek istediğinize emin misiniz?", "Onay", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     var res = _documentService.DeleteOffer(id);
                     if (res.Success) LoadOffers();
@@ -150,4 +150,6 @@ namespace SmartAccount.UI.Views
         #endregion
     }
 }
+
+
 

@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Windows.Forms;
 using SmartAccount.Business.Services;
 using SmartAccount.Core.Data;
@@ -12,13 +12,14 @@ namespace SmartAccount.UI
         static void Main()
         {
             ApplicationConfiguration.Initialize();
+            System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
             
-            // Seed Veritabanı ve Admin
+            // Seed VeritabanÄ± ve Admin
             using (var context = new SmartAccountDbContext())
             {
                 context.Database.Migrate(); // Migration varsa uygula
                 var userService = new UserService(context);
-                userService.EnsureAdminExists(); // İlk kullanıcı yoksa admin ekle
+                userService.EnsureAdminExists(); // Ä°lk kullanÄ±cÄ± yoksa admin ekle
                 
                 var financeService = new FinanceService(context);
                 financeService.EnsureDefaultCategoriesExist(); // Temel kategorileri ekle

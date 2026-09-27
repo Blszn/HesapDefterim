@@ -26,7 +26,7 @@ namespace SmartAccount.UI.Views
             var customer = _context.Customers.Find(_customerId);
             if (customer != null)
             {
-                this.Text = "";
+                this.Text = "Detaylar";
                 lblCustomerName.Text = customer.FullName;
                 LoadExtre();
                 LoadAttachments();
@@ -45,12 +45,12 @@ namespace SmartAccount.UI.Views
 
             var extreItems = transactions.Select(t => new {
                 Tarih = t.Date,
-                IslemTuru = t.Type == "Income" ? "" : "",
+                IslemTuru = t.Type == "Income" ? "Tahsilat" : "Ödeme",
                 Tutar = t.Amount,
                 Aciklama = t.Description
             }).Concat(debts.Select(d => new {
                 Tarih = d.DueDate,
-                IslemTuru = d.Type == "Receivable" ? "Alacak" : "",
+                IslemTuru = d.Type == "Receivable" ? "Alacak" : "Borç",
                 Tutar = d.Amount,
                 Aciklama = d.Description
             })).OrderByDescending(x => x.Tarih).ToList();
@@ -81,6 +81,22 @@ namespace SmartAccount.UI.Views
             }
         }
         
+                private void btnEditCustomer_Click(object sender, EventArgs e)
+        {
+            var customer = _context.Customers.Find(_customerId);
+            if (customer != null)
+            {
+                using (var form = new CustomerAddEditForm(customer, new CustomerService(_context)))
+                {
+                    if (form.ShowDialog() == DialogResult.OK)
+                    {
+                        _context.Entry(customer).Reload();
+                        lblCustomerName.Text = customer.FullName;
+                    }
+                }
+            }
+        }
+
         private void btnAlacaklandir_Click(object sender, EventArgs e)
         {
             using (var form = new DebtAddEditForm("Receivable", _customerId, new FinanceService(_context), _context))
@@ -117,14 +133,24 @@ namespace SmartAccount.UI.Views
         {
             if (dgvExtre.Rows.Count == 0)
             {
-                MessageBox.Show("", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Lütfen gerekli alanları doldurun veya listeden bir kayıt seçin.", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            using (SaveFileDialog sfd = new SaveFileDialog() { Filter = "", FileName = "CariEkstre.pdf" })
+                        using (SaveFileDialog sfd = new SaveFileDialog() { Filter = "PDF Dosyası|*.pdf", FileName = "CariEkstre.pdf" })
             {
                 if (sfd.ShowDialog() == DialogResult.OK)
                 {
+                    try
+                    {
+                        if (File.Exists(sfd.FileName)) { using (FileStream fs = File.OpenWrite(sfd.FileName)) { fs.Close(); } }
+                    }
+                    catch (System.IO.IOException)
+                    {
+                        MessageBox.Show("Dosya şu anda başka bir program tarafından kullanılıyor (Örn: PDF Okuyucu). Lütfen dosyayı kapatıp tekrar deneyin.", "Dosya Kullanımda", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+
                     try
                     {
                         using (FileStream stream = new FileStream(sfd.FileName, FileMode.Create))
@@ -171,12 +197,12 @@ namespace SmartAccount.UI.Views
                             stream.Close();
                         }
 
-                        MessageBox.Show("", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("İşlem başarıyla tamamlandı.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         System.Diagnostics.Process.Start("explorer.exe", sfd.FileName);
                     }
-                    catch (Exception ex)
+                                        catch (Exception ex)
                     {
-                        MessageBox.Show("" + ex.Message, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("PDF oluşturulurken bir hata oluştu:\n" + ex.Message, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
@@ -234,7 +260,7 @@ namespace SmartAccount.UI.Views
                 }
                 else
                 {
-                    MessageBox.Show("", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("İşlem sırasında bir hata oluştu.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -244,7 +270,7 @@ namespace SmartAccount.UI.Views
             if (dgvAttachments.SelectedRows.Count > 0)
             {
                 var attachment = (Attachment)dgvAttachments.SelectedRows[0].DataBoundItem;
-                var result = MessageBox.Show("", "", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                var result = MessageBox.Show("Bu işlemi gerçekleştirmek istediğinize emin misiniz? Bu işlem geri alınamaz.", "Onay", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
                 if (result == DialogResult.Yes)
                 {
@@ -258,20 +284,26 @@ namespace SmartAccount.UI.Views
                         _context.Attachments.Remove(attachment);
                         _context.SaveChanges();
                         LoadAttachments();
-                        MessageBox.Show("", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("İşlem başarıyla tamamlandı.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("İşlem sırasında bir hata oluştu.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
             else
             {
-                MessageBox.Show("", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Lütfen gerekli alanları doldurun veya listeden bir kayıt seçin.", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
     }
 }
+
+
+
+
+
+
 
 
